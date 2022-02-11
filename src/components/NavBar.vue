@@ -1,26 +1,54 @@
 <template>
-  <el-menu
-    class="el-menu-item"
-    mode="horizontal"
-    background-color="#545c64"
-    text-color="#fff"
-    text-align="center">
-
-      <el-menu-item index="1">Home</el-menu-item>
-      <el-menu-item index="2">About Us</el-menu-item>
-      <el-menu-item index="3">Login</el-menu-item>
-      <el-menu-item index="4">Register</el-menu-item>
-
-  </el-menu>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <router-link :to="{ name: 'Home' }" class="nav-link"
+            >Home</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'About' }" class="nav-link"
+            >About</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'Graphs' }" class="nav-link"
+            >Graphs</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'Login' }" class="nav-link"
+            >Login</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'Signup' }" class="nav-link"
+            >Signup</router-link
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
 </template>
 
 <script>
-
+export default {};
 </script>
 
 <style>
-el-menu{
-    background-color: #545c64;
-    text-align:center;
+.router-link-exact-active {
+  color: #fd7e14 !important;
+}
+
+.router-link {
+  position: fixed; /* fixing the position takes it out of html flow - knows
+                   nothing about where to locate itself except by browser
+                   coordinates */
+  left: 0; /* top left corner should start at leftmost spot */
+  top: 0; /* top left corner should start at topmost spot */
+  width: 100vw; /* take up the full browser width */
+  z-index: 200; /* high z index so other content scrolls underneath */
+  height: 100px; /* define height for content */
 }
 </style>

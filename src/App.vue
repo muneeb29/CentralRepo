@@ -1,17 +1,28 @@
 <template>
-  <home> </home>
+<navbar></navbar>
+
+<div class="container p-5 my-5 border bg-secondary text-white">
+    <h1 class="text-uppercase">Cardiomyopathy</h1>
+    
+</div>
+<router-view/>
+
+
+<Footer/>
+
 </template>
 
 <script>
-import Home from './views/Home.vue';
+import Navbar  from './components/Navbar.vue'
+import Footer  from './components/Footer.vue'
 
-export default {
-  name: 'App',
-  components: {
-    Home,
-  }
-}
+export default ({
+
+      components: {Navbar, Footer}
+
+})
 </script>
+
 
 <style>
 #app {
@@ -20,6 +31,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+
 </style>
