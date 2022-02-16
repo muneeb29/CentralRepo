@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-
     <h3>About Cardiomyopathy</h3>
 
     <p>
@@ -41,7 +40,7 @@
 </template>
 
 <script>
-import Images from "@/components/Images";
+import Images from "@/components/images";
 export default {
   name: "About",
   components: { Images },

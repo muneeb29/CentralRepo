@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <h3>Welcome To this Cardiomyopathy Research Application</h3>
 
     <p>
@@ -41,7 +40,7 @@
 </template>
 
 <script>
-import Images from "@/components/Images";
+import Images from "@/components/images";
 
 export default {
   name: "Home",

@@ -1,28 +1,22 @@
 <template>
-<navbar></navbar>
+  <navbar></navbar>
 
-<div class="container p-5 my-5 border bg-secondary text-white">
+  <div class="container p-5 my-5 border bg-secondary text-white">
     <h1 class="text-uppercase">Cardiomyopathy</h1>
-    
-</div>
-<router-view/>
+  </div>
+  <router-view />
 
-
-<Footer/>
-
+  <Footer />
 </template>
 
 <script>
-import Navbar  from './components/Navbar.vue'
-import Footer  from './components/Footer.vue'
+import Navbar from "./components/NavBar.vue";
+import Footer from "./components/Footer.vue";
 
-export default ({
-
-      components: {Navbar, Footer}
-
-})
+export default {
+  components: { Navbar, Footer },
+};
 </script>
-
 
 <style>
 #app {
@@ -41,6 +35,4 @@ export default ({
   font-weight: bold;
   color: #2c3e50;
 }
-
-
 </style>
