@@ -1,7 +1,7 @@
 <template>
   <navbar></navbar>
 
-  <div class="container p-5 my-5 border bg-secondary text-white">
+  <div class="container p-5 my-5 border bg-secondary text-white rounded">
     <h1 class="text-uppercase">Cardiomyopathy</h1>
   </div>
   <router-view />

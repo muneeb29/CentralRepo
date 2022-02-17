@@ -29,7 +29,11 @@
               </div>
 
               <p class="small mb-5 pb-lg-2">
-                <a class="text-white-50" href="#!">Forgot password?</a>
+                             <router-link
+                :to="{ name: 'Forgot' }"
+                class="text-white-50 fw-bold"
+                >Forgot Password</router-link
+              >
               </p>
 
               <button class="btn btn-outline-light btn-lg px-5" type="submit">

@@ -4,6 +4,8 @@ import About from '../views/About.vue'
 import Graphs from '../views/Graphs.vue'
 import Signup from '../views/Signup.vue'
 import Login from '../views/Login.vue'
+import Forgot from '../views/Forgot.vue'
+import Help from '../views/Help.vue'
 import Notfound from '../views/Notfound.vue'
 
 const routes = [
@@ -31,6 +33,16 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/forgot',
+    name: 'Forgot',
+    component: Forgot
+  },
+  {
+    path: '/help',
+    name: 'Help',
+    component: Help
   },
   {
     path: "/:catchAll(.*)",

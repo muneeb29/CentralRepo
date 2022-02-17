@@ -27,6 +27,11 @@
             >Signup</router-link
           >
         </li>
+                <li class="nav-item">
+          <router-link :to="{ name: 'Help' }" class="nav-link"
+            >Help</router-link
+          >
+        </li>
       </ul>
     </div>
   </nav>
