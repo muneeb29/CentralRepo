@@ -10,16 +10,7 @@
       cardiomyopathies occur due to mutations in genes that encode certain
       proteins in the cells of the heart.
     </p>
-
-    <images>
-      <template #image>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/7/75/Blausen_0165_Cardiomyopathy_Dilated.png"
-        />
-      </template>
-    </images>
-
-    <p>
+        <p>
       Many research groups, clinicians, medical centres and labs perform
       experiments on heart cells from patients and animals to better understand
       the mechanisms that cause these cardiomyopathies. The aim is disease
@@ -36,15 +27,29 @@
       Therefore, this site has been created so that interested parties are make
       queries and further explore their research.
     </p>
+
+   <div>
+    <Suspense>
+      <template #default>
+        <News />
+      </template>
+
+      <template #fallback>
+        <div>Loading...</div>
+      </template>
+    </Suspense>
+
+  </div>
+
   </div>
 </template>
 
 <script>
-import Images from "@/components/images";
+import News from "@/components/News.vue";
 
 export default {
   name: "Home",
-  components: { Images },
+  components: { News },
 };
 </script>
 
