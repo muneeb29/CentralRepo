@@ -1,11 +1,24 @@
 <template>
-  <div>
-    <h3>Graphs</h3>
+  <h3>Graphs</h3>
+  <div class="">
+    <line-chart class=" border bg-light center"></line-chart>
   </div>
 </template>
 
 <script>
-export default {};
+import LineChart from "@/graphs/LineChart";
+
+export default {
+  components: {
+    LineChart,
+  },
+};
 </script>
 
-<style></style>
+<style scoped>
+.center {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+</style>
