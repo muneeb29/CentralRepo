@@ -38,6 +38,15 @@
               <div class="form-outline form-white mb-4">
                 <input
                   type="text"
+                  id="institutionID"
+                  class="form-control form-control-lg"
+                />
+                <label class="form-label" for="institutionID">Institutional Affiliation</label>
+              </div>
+
+              <div class="form-outline form-white mb-4">
+                <input
+                  type="text"
                   id="addressID"
                   class="form-control form-control-lg"
                 />
