@@ -7,10 +7,16 @@
         <div class="form-control-lg">
           <select v-model="selected">
             <option disabled value="">Select One</option>
-            <option>MYH</option>
+            <option>MYH7</option>
             <option>MYBPC3</option>
-            <option>TNNT</option>
+            <option>TNNT2</option>
+            <option>ACTC</option>
             <option>TPM1</option>
+            <option>TNNCI</option>
+            <option>TNNI3</option>
+            <option>MYL2</option>
+            <option>TTN</option>
+
           </select>
           <br />
           <br />
