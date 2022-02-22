@@ -8,6 +8,7 @@ import Forgot from '../views/Forgot.vue'
 import Help from '../views/Help.vue'
 import Notfound from '../views/Notfound.vue'
 import Dashboard from '../views/Dashboard.vue'
+import Logout from '../views/Logout.vue'
 
 const routes = [
   {
@@ -34,6 +35,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/logout',
+    name: 'Logout',
+    component: Logout
   },
   {
     path: '/forgot',
