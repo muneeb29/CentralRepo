@@ -2,7 +2,7 @@
   <div>
     <h1>Help</h1>
 
-    <div class="container-fluid bg light">
+    <div class="container-fluid bg light border">
       <h4>Sitemap</h4>
     </div>
     <img alt="sitemap" src="../img/sitemap.png" style="width: 100%" />
@@ -10,6 +10,8 @@
     <div class="container py-5 h-60"></div>
     <div class="row">
       <h4>Commonly Asked Questions</h4>
+
+      <div class="border-2 border-top" />
       <div class="row text-left">
         <li>How To Reset My Password?</li>
 
