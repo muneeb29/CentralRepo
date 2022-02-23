@@ -20,13 +20,13 @@
       queried by interested parties anywhere in the world.
     </p>
 
-    <images>
-      <template #image>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/3/33/Blausen_0166_Cardiomyopathy_Hypertrophic.png"
-        alt="visual diagram of cardiomyopthy"/>
-      </template>
-    </images>
+    <div>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/3/33/Blausen_0166_Cardiomyopathy_Hypertrophic.png"
+        alt="visual diagram of cardiomyopthy"
+        class="img-fluid"
+      />
+    </div>
 
     <p>
       The purpose of the web application is to provide a central repository for
@@ -40,10 +40,8 @@
 </template>
 
 <script>
-import Images from "@/components/images";
 export default {
   name: "About",
-  components: { Images },
 };
 </script>
 
