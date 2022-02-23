@@ -19,11 +19,11 @@
 
               <div class="form-outline form-white mb-4">
                 <input
-                  type="email"
-                  id="emailID"
+                  type="text"
+                  id="addressID"
                   class="form-control form-control-lg"
                 />
-                <label class="form-label" for="emailID">Email</label>
+                <label class="form-label" for="addressID">Address</label>
               </div>
 
               <div class="form-outline form-white mb-4">
@@ -32,25 +32,27 @@
                   id="telephoneID"
                   class="form-control form-control-lg"
                 />
-                <label class="form-label" for="telephoneID">Telephone</label>
+                <label class="form-label" for="telephoneID">Phone Number</label>
               </div>
 
               <div class="form-outline form-white mb-4">
                 <input
-                  type="text"
-                  id="institutionID"
+                  type="telephone"
+                  id="telephoneID"
                   class="form-control form-control-lg"
                 />
-                <label class="form-label" for="institutionID">Institutional Affiliation</label>
+                <label class="form-label" for="institutionalAffiliationID"
+                  >Institutional Affiliation</label
+                >
               </div>
 
               <div class="form-outline form-white mb-4">
                 <input
-                  type="text"
-                  id="addressID"
+                  type="email"
+                  id="emailID"
                   class="form-control form-control-lg"
                 />
-                <label class="form-label" for="addressID">Address</label>
+                <label class="form-label" for="emailID">Email</label>
               </div>
 
               <div class="form-outline form-white mb-4">
