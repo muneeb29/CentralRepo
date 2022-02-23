@@ -7,16 +7,19 @@
     </div>
     <img alt="sitemap" src="../img/sitemap.png" style="width: 100%" />
 
+    <div class="container py-5 h-60"></div>
     <div class="row">
       <h4>Commonly Asked Questions</h4>
       <div class="row text-left">
         <li>How To Reset My Password?</li>
 
-        <div class="col">Click                            <router-link
-                :to="{ name: 'Forgot' }"
-                class="text-black fw-bold"
-                >Forgot Password</router-link
-              > And Enter Your Details</div>
+        <div class="col">
+          Click
+          <router-link :to="{ name: 'Forgot' }" class="text-black fw-bold"
+            >Forgot Password</router-link
+          >
+          And Enter Your Details
+        </div>
       </div>
 
       <div class="container bg light"></div>
@@ -24,11 +27,13 @@
       <div class="row text-left">
         <li>How To Create An Account?</li>
 
-        <div class="col">Click               <router-link
-                :to="{ name: 'Signup' }"
-                class="text-black fw-bold"
-                >Signup</router-link
-              > And Enter Your Details</div>
+        <div class="col">
+          Click
+          <router-link :to="{ name: 'Signup' }" class="text-black fw-bold"
+            >Signup</router-link
+          >
+          And Enter Your Details
+        </div>
       </div>
       <div class="row text-left">
         <li>Where To View The Graphs?</li>

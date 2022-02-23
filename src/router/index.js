@@ -7,6 +7,8 @@ import Login from '../views/Login.vue'
 import Forgot from '../views/Forgot.vue'
 import Help from '../views/Help.vue'
 import Notfound from '../views/Notfound.vue'
+import Dashboard from '../views/Dashboard.vue'
+import Logout from '../views/Logout.vue'
 
 const routes = [
   {
@@ -35,6 +37,11 @@ const routes = [
     component: Login
   },
   {
+    path: '/logout',
+    name: 'Logout',
+    component: Logout
+  },
+  {
     path: '/forgot',
     name: 'Forgot',
     component: Forgot
@@ -43,6 +50,11 @@ const routes = [
     path: '/help',
     name: 'Help',
     component: Help
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
   },
   {
     path: "/:catchAll(.*)",
