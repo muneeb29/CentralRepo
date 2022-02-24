@@ -6,67 +6,147 @@
           <div class="card-body p-5 text-center">
             <div class="mb-md-5 mt-md-4 pb-5">
               <h2 class="fw-bold mb-2 text-uppercase">Signup</h2>
-              <p class="text-white-50 mb-5">Please enter your Details</p>
+              <div v-if="!reg_completed">
+                <p class="text-white-50 mb-5">Please enter your Details</p>
 
-              <div class="form-outline form-white mb-4">
-                <input
-                  type="text"
-                  id="nameID"
-                  class="form-control form-control-lg"
-                />
-                <label class="form-label" for="nameID">Name</label>
-              </div>
-
-              <div class="form-outline form-white mb-4">
-                <input
-                  type="text"
-                  id="addressID"
-                  class="form-control form-control-lg"
-                />
-                <label class="form-label" for="addressID">Address</label>
-              </div>
-
-              <div class="form-outline form-white mb-4">
-                <input
-                  type="telephone"
-                  id="telephoneID"
-                  class="form-control form-control-lg"
-                />
-                <label class="form-label" for="telephoneID">Phone Number</label>
-              </div>
-
-              <div class="form-outline form-white mb-4">
-                <input
-                  type="telephone"
-                  id="telephoneID"
-                  class="form-control form-control-lg"
-                />
-                <label class="form-label" for="institutionalAffiliationID"
-                  >Institutional Affiliation</label
+                <vee-form
+                  :validation-schema="schema"
+                  @submit="register"
+                  :initial-values="userData"
                 >
-              </div>
+                  <!-- Name -->
+                  <div class="form-outline form-white mb-4">
+                    <vee-field
+                      type="text"
+                      name="name"
+                      v-model="name"
+                      class="form-control form-control-lg"
+                      placeholder="Enter name"
+                    />
+                    <label class="form-label">Name</label>
+                    <ErrorMessage class="text-danger mx-2" name="name" />
+                  </div>
+                  <!-- Address -->
+                  <div class="form-outline form-white mb-4">
+                    <vee-field
+                      type="text"
+                      name="address"
+                      v-model="address"
+                      class="form-control form-control-lg"
+                      placeholder="Enter address"
+                    />
+                    <label class="form-label">Address</label>
+                    <ErrorMessage class="text-danger mx-2" name="address" />
+                  </div>
 
-              <div class="form-outline form-white mb-4">
-                <input
-                  type="email"
-                  id="emailID"
-                  class="form-control form-control-lg"
-                />
-                <label class="form-label" for="emailID">Email</label>
-              </div>
+                  <!-- Telephone -->
+                  <div class="form-outline form-white mb-4">
+                    <vee-field
+                      type="telephone"
+                      name="telephone"
+                      v-model="telephone"
+                      class="form-control form-control-lg"
+                      placeholder="Enter telephone"
+                    />
+                    <label class="form-label">Telephone</label>
+                    <ErrorMessage class="text-danger mx-2" name="telephone" />
+                  </div>
+                  <!-- Institutional affiliation -->
+                  <div class="form-outline form-white mb-4">
+                    <vee-field
+                      type="text"
+                      name="institutionalaffiliation"
+                      v-model="institutionalaffiliation"
+                      class="form-control form-control-lg"
+                      placeholder="Enter institutional affiliation"
+                    />
+                    <label class="form-label">Institutional affiliation</label>
+                    <ErrorMessage
+                      class="text-danger mx-2"
+                      name="institutionalaffiliation"
+                    />
+                  </div>
+                  <!-- Email -->
+                  <div class="form-outline form-white mb-4">
+                    <vee-field
+                      type="email"
+                      name="email"
+                      v-model="email"
+                      class="form-control form-control-lg"
+                      placeholder="Enter Email"
+                    />
+                    <label class="form-label">Email</label>
+                    <ErrorMessage class="text-danger mx-2" name="email" />
+                  </div>
 
-              <div class="form-outline form-white mb-4">
-                <input
-                  type="password"
-                  id="passwordID"
-                  class="form-control form-control-lg"
-                />
-                <label class="form-label" for="passwordID">Password</label>
+                  <!-- Password -->
+                  <div class="form-outline form-white mb-4">
+                    <vee-field
+                      name="password"
+                      v-model="password"
+                      :bails="false"
+                      v-slot="{ field, errors }"
+                    >
+                      <input
+                        type="password"
+                        id="password"
+                        class="form-control form-control-lg"
+                        placeholder="Enter Password"
+                        v-bind="field"
+                      />
+                      <div
+                        class="text-danger"
+                        v-for="error in errors"
+                        :key="error"
+                      >
+                        {{ error }}
+                      </div>
+                    </vee-field>
+                    <label class="form-label">Password</label>
+                  </div>
+                  <!-- Confirm password -->
+                  <div class="form-outline form-white mb-4">
+                    <vee-field
+                      type="password"
+                      name="confirm_password"
+                      class="form-control form-control-lg"
+                      placeholder="Confirm password"
+                    />
+                    <label class="form-label">Confirm password</label>
+                    <ErrorMessage
+                      class="text-danger mx-2"
+                      name="confirm_password"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="btn btn-outline-light btn-lg px-5"
+                    @submit="register"
+                  >
+                    Signup
+                  </button>
+                </vee-form>
               </div>
-              <button class="btn btn-outline-light btn-lg px-5" type="submit">
-                Signup
-              </button>
             </div>
+
+            <div v-if="registerEmailSuccess" class="card mb-2">
+              <div class="card-body">
+                <p class="lead text-primary font-weight-bold">
+                  {{ registerEmailSuccess }}
+                </p>
+              </div>
+            </div>
+
+            <p v-if="registerEmailError" class="lead text-warning mt-2">
+              {{ registerEmailError }}
+            </p>
+            <p
+              v-if="registerDuplicateEmailError"
+              class="lead text-warning mt-2"
+            >
+              {{ registerDuplicateEmailError }}
+            </p>
 
             <div>
               <p class="mb-0">Already have an account?</p>
@@ -83,7 +163,79 @@
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+
+export default {
+  name: "RegisterForm",
+  computed: {
+    // getting data from the vuex store
+    ...mapState({
+      registerEmailSuccess: (state) => state.auth.registerEmailSuccess,
+      registerEmailError: (state) => state.auth.registerEmailError,
+      registerDuplicateEmailError: (state) =>
+        state.auth.registerDuplicateEmailError,
+    }),
+  },
+  data() {
+    return {
+      // validation rules
+      schema: {
+        name: "required|min:3|max:100|alpha_spaces",
+        institutionalaffiliation: "required",
+        email: "required|min:3|max:100|email",
+        password: "required|min:3|max:100",
+        confirm_password: "passwords_mismatch:@password",
+      },
+      userData: {
+        email: "",
+        password: "",
+      },
+      // initial values of the form which get updated
+      // when the user types
+      name: "",
+      address: "",
+      telephone: "",
+      institutionalaffiliation: "",
+      email: "",
+      password: "",
+      reg_in_submission: false,
+      reg_completed: false,
+    };
+  },
+  methods: {
+    // what is done when you click on the register button
+    async register() {
+      // extracting the values from the data() from above
+      const {
+        name,
+        address,
+        telephone,
+        institutionalaffiliation,
+        email,
+        password,
+      } = this;
+
+      this.reg_in_submission = true;
+
+      try {
+        console.log("registering from the signup component");
+        await this.$store.dispatch("register", {
+          // sending these values to the register function
+          // in vuex store
+          name,
+          address,
+          telephone,
+          institutionalaffiliation,
+          email,
+          password,
+        });
+      } catch (error) {
+        this.reg_in_submission = false;
+        return;
+      }
+    },
+  },
+};
 </script>
 
 <style></style>
