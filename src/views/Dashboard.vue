@@ -2,7 +2,7 @@
   <div>
     <h1>Welcome To The User Dashboard</h1>
 
-    <div class="py-5 center" >
+    <div class="py-5 center">
       <line-chart class="border border-2 bg-light"></line-chart>
     </div>
 
