@@ -1,7 +1,10 @@
 <template>
-  <div class="about">
+  <div class="container bg-light border border-3 py-1">
     <h3>About Cardiomyopathy</h3>
+  </div>
 
+  <body>
+  <div class="container bg-light border border-2 py-3">
     <p>
       Cardiomyopathy is a disease of the heart muscle that makes it harder for
       your heart to pump blood to the rest of your body. The most common forms
@@ -20,13 +23,13 @@
       queried by interested parties anywhere in the world.
     </p>
 
-    <images>
-      <template #image>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/3/33/Blausen_0166_Cardiomyopathy_Hypertrophic.png"
-        alt="visual diagram of cardiomyopthy"/>
-      </template>
-    </images>
+    <div>
+      <img
+        src="../img/cardiomyopathy.png"
+        alt="visual diagram of cardiomyopathy"
+        class="img-fluid"
+      />
+    </div>
 
     <p>
       The purpose of the web application is to provide a central repository for
@@ -37,13 +40,12 @@
       experience.
     </p>
   </div>
+  </body>
 </template>
 
 <script>
-import Images from "@/components/images";
 export default {
   name: "About",
-  components: { Images },
 };
 </script>
 

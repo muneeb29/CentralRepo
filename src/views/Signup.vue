@@ -21,7 +21,7 @@
                       name="name"
                       v-model="name"
                       class="form-control form-control-lg"
-                      placeholder="Enter name"
+                      placeholder="Enter Name"
                     />
                     <label class="form-label">Name</label>
                     <ErrorMessage class="text-danger mx-2" name="name" />
@@ -33,7 +33,7 @@
                       name="address"
                       v-model="address"
                       class="form-control form-control-lg"
-                      placeholder="Enter address"
+                      placeholder="Enter Address"
                     />
                     <label class="form-label">Address</label>
                     <ErrorMessage class="text-danger mx-2" name="address" />
@@ -46,7 +46,7 @@
                       name="telephone"
                       v-model="telephone"
                       class="form-control form-control-lg"
-                      placeholder="Enter telephone"
+                      placeholder="Enter Telephone"
                     />
                     <label class="form-label">Telephone</label>
                     <ErrorMessage class="text-danger mx-2" name="telephone" />
@@ -58,9 +58,9 @@
                       name="institutionalaffiliation"
                       v-model="institutionalaffiliation"
                       class="form-control form-control-lg"
-                      placeholder="Enter institutional affiliation"
+                      placeholder="Enter Institutional Affiliation"
                     />
-                    <label class="form-label">Institutional affiliation</label>
+                    <label class="form-label">Institutional Affiliation</label>
                     <ErrorMessage
                       class="text-danger mx-2"
                       name="institutionalaffiliation"
@@ -110,9 +110,9 @@
                       type="password"
                       name="confirm_password"
                       class="form-control form-control-lg"
-                      placeholder="Confirm password"
+                      placeholder="Confirm Password"
                     />
-                    <label class="form-label">Confirm password</label>
+                    <label class="form-label">Confirm Password</label>
                     <ErrorMessage
                       class="text-danger mx-2"
                       name="confirm_password"

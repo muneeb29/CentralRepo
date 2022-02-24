@@ -1,12 +1,15 @@
 <template>
-  <navbar></navbar>
-
-  <div class="container p-5 my-5 border bg-secondary text-white rounded">
-    <h1 class="text-uppercase">Cardiomyopathy</h1>
+  <div>
+    <img
+      alt="Cardiomyopathy Banner"
+      src="./img/banner.jpg" 
+      class="logo"
+    />
   </div>
+  <navbar></navbar>
+  <div class="py-2"></div>
   <router-view />
-
-  <Footer />
+  <Footer/>
 </template>
 
 <script>
@@ -23,19 +26,20 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, Avenir;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.header {
+  font-family: monospace;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.logo {
+  width: 100%;
+  height: 10rem;
+    object-fit: cover;
 }
 </style>
