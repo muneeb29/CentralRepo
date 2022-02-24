@@ -1,19 +1,82 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firsbase/firestore";
+// extracting functions from the firebase library
+// in different categories like auth, firestore and storage
+import { initializeApp, FirebaseError } from "firebase/app";
+import {
+  getAuth,
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  signOut,
+} from "firebase/auth";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  getDoc,
+  setDoc,
+  addDoc,
+  updateDoc,
+  where,
+  query,
+  orderBy,
+  doc,
+  Timestamp,
+} from "firebase/firestore";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAArLAnl19uLtWbRz8NBYZXwXTRuQZrbDM",
-    authDomain: "cardiomyopathy-2362a.firebaseapp.com",
-    projectId: "cardiomyopathy-2362a",
-    storageBucket: "cardiomyopathy-2362a.appspot.com",
-    messagingSenderId: "126392084047",
-    appId: "1:126392084047:web:3d20020f6f04d5eb82ec3a"
-  };
+  apiKey: "AIzaSyD2CujV1B8NXZeAXV1BYkPVFg9qepcKumU",
+  authDomain: "cardiomyopathy-f93f7.firebaseapp.com",
+  databaseURL: "https://cardiomyopathy-f93f7-default-rtdb.firebaseio.com",
+  projectId: "cardiomyopathy-f93f7",
+  storageBucket: "cardiomyopathy-f93f7.appspot.com",
+  messagingSenderId: "491841001479",
+  appId: "1:491841001479:web:cd8837fd501db5380c72a2",
+};
 
-  //initialize firebase
-  firebase.initializeApp(firebaseConfig);
-  const firebaseAuthentication = firebase.auth();
-  const firebaseFireStore = firebase.firestore();
+//initialize firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const db = getFirestore();
+const storage = getStorage();
 
-  export { firebaseAuthentication , firebaseFireStore};
+// setting a reference to the users collection
+// that will be created when you register users
+const usersCollection = collection(db, "users");
+
+// exporting functions to use them in other components
+export {
+  app,
+  auth,
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendEmailVerification,
+  db,
+  storage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+  doc,
+  Timestamp,
+  where,
+  query,
+  orderBy,
+  collection,
+  getDocs,
+  setDoc,
+  getDoc,
+  addDoc,
+  updateDoc,
+  signOut,
+  FirebaseError,
+  sendPasswordResetEmail,
+  usersCollection,
+};

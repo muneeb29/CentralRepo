@@ -18,16 +18,26 @@
           >
         </li>
         <li class="nav-item">
+          <router-link :to="{ name: 'Dashboard' }" class="nav-link"
+            >Dashboard</router-link
+          >
+        </li>
+        <li v-if="!userLoggedIn" class="nav-item">
           <router-link :to="{ name: 'Login' }" class="nav-link"
             >Login</router-link
           >
         </li>
-        <li class="nav-item">
+        <li v-if="!userLoggedIn" class="nav-item">
           <router-link :to="{ name: 'Signup' }" class="nav-link"
             >Signup</router-link
           >
         </li>
-                <li class="nav-item">
+        <li @click="signoutSession" v-if="userLoggedIn" class="nav-item">
+          <router-link :to="{ name: 'Home' }" class="nav-link"
+            >Sign out</router-link
+          >
+        </li>
+        <li class="nav-item">
           <router-link :to="{ name: 'Help' }" class="nav-link"
             >Help</router-link
           >
@@ -38,7 +48,25 @@
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+
+export default {
+  computed: {
+    ...mapState({
+      userLoggedIn: (state) => state.auth.userLoggedIn,
+    }),
+  },
+  methods: {
+    async signoutSession() {
+      try {
+        await this.$store.dispatch("signout");
+      } catch (error) {
+        this.forgot_password_submission = false;
+        return;
+      }
+    },
+  },
+};
 </script>
 
 <style>

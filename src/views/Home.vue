@@ -10,7 +10,7 @@
       cardiomyopathies occur due to mutations in genes that encode certain
       proteins in the cells of the heart.
     </p>
-        <p>
+    <p>
       Many research groups, clinicians, medical centres and labs perform
       experiments on heart cells from patients and animals to better understand
       the mechanisms that cause these cardiomyopathies. The aim is disease
@@ -28,28 +28,40 @@
       queries and further explore their research.
     </p>
 
-   <div>
-    <Suspense>
-      <template #default>
-        <News />
-      </template>
+    <div>
+      <Suspense>
+        <template #default>
+          <News />
+        </template>
 
-      <template #fallback>
-        <div>Loading...</div>
-      </template>
-    </Suspense>
-
-  </div>
-
+        <template #fallback>
+          <div>Loading...</div>
+        </template>
+      </Suspense>
+    </div>
   </div>
 </template>
 
 <script>
 import News from "@/components/News.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "Home",
   components: { News },
+  computed: {
+    ...mapState({
+      userLoggedIn: (state) => state.auth.userLoggedIn,
+    }),
+  },
+  created() {
+    if (this.userLoggedIn) {
+      this.$toast.show(`Welcome back to the app!`, {
+        position: "top",
+        duration: 3000,
+      });
+    }
+  },
 };
 </script>
 
