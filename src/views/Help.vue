@@ -1,12 +1,12 @@
 <template>
   <div>
-  <div class="container bg-light border border-3 py-1">
+    <div class="container bg-light border border-3 py-1">
       <h1>Help</h1>
     </div>
 
     <body>
       <div class="container-fluid bg light">
-        <h4 class="py-3 ">Sitemap</h4>
+        <h4 class="py-3">Sitemap</h4>
       </div>
       <img alt="sitemap" src="../img/sitemap.png" style="width: 100%" />
 
@@ -14,7 +14,7 @@
       <div class="row">
         <h4 class="border border-3 bg-light">Commonly Asked Questions</h4>
 
-        <div class="row text-left">
+        <div class="row text-left border border-3">
           <li>How To Reset My Password?</li>
 
           <div class="col">
@@ -28,7 +28,7 @@
 
         <div class="container bg light"></div>
 
-        <div class="row text-left">
+        <div class="row text-left border border-3">
           <li>How To Create An Account?</li>
 
           <div class="col">
@@ -39,14 +39,14 @@
             And Enter Your Details
           </div>
         </div>
-        <div class="row text-left">
+        <div class="row text-left border border-3">
           <li>Where To View The Graphs?</li>
 
           <div class="col">
             Click On the Graph Section On the Navigation Bar
           </div>
         </div>
-        <div class="row text-left">
+        <div class="row text-left border border-3">
           <li>
             How Many Attempts Before Getting Locked Out From Entering A
             Incorrect Password?

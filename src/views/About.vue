@@ -25,8 +25,8 @@
 
     <div>
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/3/33/Blausen_0166_Cardiomyopathy_Hypertrophic.png"
-        alt="visual diagram of cardiomyopthy"
+        src="../img/cardiomyopathy.png"
+        alt="visual diagram of cardiomyopathy"
         class="img-fluid"
       />
     </div>

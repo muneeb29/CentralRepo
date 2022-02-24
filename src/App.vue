@@ -1,12 +1,15 @@
 <template>
-  <navbar></navbar>
-
-  <div class="container p-4 my-5 border border-primary bg-secondary text-white rounded header">
-    <h1 class="text-uppercase">Cardiomyopathy</h1>
+  <div>
+    <img
+      alt="Cardiomyopathy Banner"
+      src="./img/banner.jpg" 
+      class="logo"
+    />
   </div>
+  <navbar></navbar>
+  <div class="py-2"></div>
   <router-view />
-  <Footer />
-  
+  <Footer/>
 </template>
 
 <script>
@@ -23,7 +26,7 @@ export default {
 
 <style>
 #app {
-  font-family:  Arial, Helvetica, sans-serif, Avenir;
+  font-family: Arial, Helvetica, sans-serif, Avenir;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -32,5 +35,11 @@ export default {
 
 .header {
   font-family: monospace;
+}
+
+.logo {
+  width: 100%;
+  height: 10rem;
+    object-fit: cover;
 }
 </style>
