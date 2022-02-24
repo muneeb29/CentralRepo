@@ -1,12 +1,12 @@
 <template>
   <navbar></navbar>
 
-  <div class="container p-5 my-5 border bg-secondary text-white rounded">
+  <div class="container p-4 my-5 border border-primary bg-secondary text-white rounded header">
     <h1 class="text-uppercase">Cardiomyopathy</h1>
   </div>
   <router-view />
-
   <Footer />
+  
 </template>
 
 <script>
@@ -23,19 +23,14 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family:  Arial, Helvetica, sans-serif, Avenir;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.header {
+  font-family: monospace;
 }
 </style>

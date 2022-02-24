@@ -17,6 +17,7 @@
                   type="email"
                   id="emailID"
                   class="form-control form-control-lg"
+                  placeholder="Enter Email"
                 />
                 <label class="form-label" for="typeEmailX">Email</label>
               </div>
@@ -29,6 +30,7 @@
                   type="password"
                   id="passwordID"
                   class="form-control form-control-lg"
+                  placeholder="Enter Password"
                 />
                 <label class="form-label" for="typePasswordX">Password</label>
               </div>

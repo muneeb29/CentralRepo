@@ -1,7 +1,10 @@
 <template>
-  <div class="about">
+  <div class="container bg-light border border-3 py-1">
     <h3>About Cardiomyopathy</h3>
+  </div>
 
+  <body>
+  <div class="container bg-light border border-2 py-3">
     <p>
       Cardiomyopathy is a disease of the heart muscle that makes it harder for
       your heart to pump blood to the rest of your body. The most common forms
@@ -37,6 +40,7 @@
       experience.
     </p>
   </div>
+  </body>
 </template>
 
 <script>
