@@ -47,12 +47,12 @@
         </li>
         <li v-if="!userLoggedIn" class="nav-item">
           <router-link :to="{ name: 'Signup' }" class="nav-link"
-            >Signup</router-link
+            >Sign Up</router-link
           >
         </li>
         <li @click="signoutSession" v-if="userLoggedIn" class="nav-item">
           <router-link :to="{ name: 'Home' }" class="nav-link"
-            >Sign out</router-link
+            >Sign Out</router-link
           >
         </li>
       </ul>
