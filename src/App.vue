@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <img
-      alt="Cardiomyopathy Banner"
-      src="./img/banner.jpg" 
-      class="logo"
-    />
-  </div>
+
   <navbar></navbar>
   <div class="py-2"></div>
   <router-view />
@@ -33,13 +27,4 @@ export default {
   color: #2c3e50;
 }
 
-.header {
-  font-family: monospace;
-}
-
-.logo {
-  width: 100%;
-  height: 10rem;
-    object-fit: cover;
-}
 </style>
