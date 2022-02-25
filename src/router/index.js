@@ -11,6 +11,8 @@ import Dashboard from "../views/Dashboard.vue";
 import store from "../store";
 import { auth } from "../firebase/database";
 
+import Contact from "../views/Contact.vue";
+
 const requireAuth = (to, from, next) => {
   let user = auth.currentUser;
   // if there is no user, redirect to the login page
@@ -64,6 +66,11 @@ const routes = [
     name: "Dashboard",
     component: Dashboard,
     beforeEnter: requireAuth,
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: Contact,
   },
   {
     path: "/:catchAll(.*)",

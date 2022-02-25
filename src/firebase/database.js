@@ -31,15 +31,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyD2CujV1B8NXZeAXV1BYkPVFg9qepcKumU",
-  authDomain: "cardiomyopathy-f93f7.firebaseapp.com",
-  databaseURL: "https://cardiomyopathy-f93f7-default-rtdb.firebaseio.com",
-  projectId: "cardiomyopathy-f93f7",
-  storageBucket: "cardiomyopathy-f93f7.appspot.com",
-  messagingSenderId: "491841001479",
-  appId: "1:491841001479:web:cd8837fd501db5380c72a2",
-};
+//add firebaseConfig
 
 //initialize firebase
 const app = initializeApp(firebaseConfig);
