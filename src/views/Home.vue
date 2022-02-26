@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="container bg-light border border-4 text-capitalize">
+    <div class="container bg-light border border-4 text-capitalize rounded">
       <h3>Welcome To this Cardiomyopathy Research Application</h3>
     </div>
 
     <body>
-      <div class="container text-black-70 rounded py-4">
+      <div class="container text-black-70 py-4">
         <p>
           Cardiomyopathy is a disease of the heart muscle that makes it harder
           for your heart to pump blood to the rest of your body. The most common
