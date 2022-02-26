@@ -22,11 +22,6 @@
           >
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'Graphs' }" class="nav-link"
-            >Graphs</router-link
-          >
-        </li>
-        <li class="nav-item">
           <router-link :to="{ name: 'Dashboard' }" class="nav-link"
             >Dashboard</router-link
           >

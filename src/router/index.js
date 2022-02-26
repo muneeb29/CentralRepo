@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
-import Graphs from "../views/Graphs.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Forgot from "../views/Forgot.vue";
@@ -32,12 +31,6 @@ const routes = [
     path: "/about",
     name: "About",
     component: About,
-  },
-  {
-    path: "/graphs",
-    name: "Graphs",
-    component: Graphs,
-    beforeEnter: requireAuth,
   },
   {
     path: "/signup",
