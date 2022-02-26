@@ -2,7 +2,7 @@
   <body>
     <div class="row">
       <div class="col border border-3 py-3">
-        <h2>About This Site</h2>
+        <h1>About This Site</h1>
       </div>
 
       <div class="txt-alignment">

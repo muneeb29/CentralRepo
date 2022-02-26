@@ -3,7 +3,7 @@
     <body>
       <div class="row">
         <div class="col border border-3 py-3">
-          <h2>Help</h2>
+          <h1>Help</h1>
         </div>
 
         <div class="container-fluid bg light">
