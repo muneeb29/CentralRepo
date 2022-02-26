@@ -1,34 +1,21 @@
 <template>
-  <div>
-    <div class="row">
+       <div class="row">
       <div class="col border border-3 py-3">
-        <h1>Welcome To The User Dashboard</h1>
+        <h1>Dashboard</h1>
       </div>
-    <!-- <div class="py-5 center">
+
+
+   <div class="py-5 center">
       <line-chart class="border border-2 bg-light"></line-chart>
-    </div> -->
-
-    <div class="container bg-light border py-3">
-      <add-data></add-data>
-      <br />
-      <br />
     </div>
-
-    <div class="container py-5 hi-10"></div>
-    <div class="container bg-light border">
-      <search> </search>
-    </div>
-  </div>
-  </div>
+       </div>
 </template>
 
 <script>
-// import LineChart from "@/graphs/LineChart";
-import AddData from "./AddData.vue";
-import Search from "./Search.vue";
+import LineChart from "@/graphs/LineChart";
 export default {
-  components: { AddData, Search },
-};
+ components: { LineChart },
+}
 </script>
 
 <style scoped>

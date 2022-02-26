@@ -6,8 +6,8 @@ import Login from "../views/Login.vue";
 import Forgot from "../views/Forgot.vue";
 import Help from "../views/Help.vue";
 import Notfound from "../views/Notfound.vue";
+import AddData from "../views/AddData.vue";
 import Dashboard from "../views/Dashboard.vue";
-import Graphs from "../views/Graphs.vue";
 import store from "../store";
 import { auth } from "../firebase/database";
 import Contact from "../views/Contact.vue";
@@ -61,9 +61,9 @@ const routes = [
     beforeEnter: requireAuth,
   },
   {
-    path: "/graphs",
-    name: "Graphs",
-    component: Graphs,
+    path: "/AddData",
+    name: "AddData",
+    component: AddData,
     beforeEnter: requireAuth,
   },
   {

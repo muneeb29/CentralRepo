@@ -22,13 +22,13 @@
           >
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'Dashboard' }" class="nav-link"
-            >Dashboard</router-link
+          <router-link :to="{ name: 'AddData' }" class="nav-link"
+            >Add Data</router-link
           >
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'Graphs' }" class="nav-link"
-            >Graphs</router-link
+          <router-link :to="{ name: 'Dashboard' }" class="nav-link"
+            >Dashboard</router-link
           >
         </li>
 
