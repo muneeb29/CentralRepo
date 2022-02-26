@@ -31,6 +31,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 
+//add firebaseConfig
 const firebaseConfig = {
   apiKey: "AIzaSyD2CujV1B8NXZeAXV1BYkPVFg9qepcKumU",
   authDomain: "cardiomyopathy-f93f7.firebaseapp.com",
@@ -50,6 +51,10 @@ const storage = getStorage();
 // setting a reference to the users collection
 // that will be created when you register users
 const usersCollection = collection(db, "users");
+
+// setting a reference to the contact collection
+// that will have the documents of the messages that users send
+const contactCollection = collection(db, "contact");
 
 // exporting functions to use them in other components
 export {
@@ -79,4 +84,5 @@ export {
   FirebaseError,
   sendPasswordResetEmail,
   usersCollection,
+  contactCollection,
 };

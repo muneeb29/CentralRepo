@@ -42,7 +42,7 @@
                   <!-- Telephone -->
                   <div class="form-outline form-white mb-4">
                     <vee-field
-                      type="telephone"
+                      type="number"
                       name="telephone"
                       v-model="telephone"
                       class="form-control form-control-lg"
