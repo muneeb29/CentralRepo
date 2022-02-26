@@ -6,13 +6,13 @@
   >
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="../img/cardiomyopathy.png" class="d-block w-100" alt="..." />
+        <img src="../img/cardiomyopathy.png" class="d-block w-100" alt="first slide" />
       </div>
       <div class="carousel-item">
-        <img src="../img/cardiomyopathy.png" class="d-block w-100" alt="..." />
+        <img src="../img/cardiomyopathy.png" class="d-block w-100" alt="secomnd slide" />
       </div>
       <div class="carousel-item">
-        <img src="../img/cardiomyopathy.png" class="d-block w-100" alt="..." />
+        <img src="../img/cardiomyopathy.png" class="d-block w-100" alt="third slide" />
       </div>
     </div>
     <button
