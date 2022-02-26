@@ -10,7 +10,6 @@ import Notfound from "../views/Notfound.vue";
 import Dashboard from "../views/Dashboard.vue";
 import store from "../store";
 import { auth } from "../firebase/database";
-
 import Contact from "../views/Contact.vue";
 
 const requireAuth = (to, from, next) => {
