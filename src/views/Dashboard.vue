@@ -4,11 +4,11 @@
       <div class="col border border-3 py-3">
         <h1>Welcome To The User Dashboard</h1>
       </div>
-    <div class="py-5 center">
+    <!-- <div class="py-5 center">
       <line-chart class="border border-2 bg-light"></line-chart>
-    </div>
+    </div> -->
 
-    <div class="container bg-light border">
+    <div class="container bg-light border py-3">
       <add-data></add-data>
       <br />
       <br />
@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import LineChart from "@/graphs/LineChart";
+// import LineChart from "@/graphs/LineChart";
 import AddData from "./AddData.vue";
 import Search from "./Search.vue";
 export default {
-  components: { LineChart, AddData, Search },
+  components: { AddData, Search },
 };
 </script>
 

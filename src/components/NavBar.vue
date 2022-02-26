@@ -26,6 +26,11 @@
             >Dashboard</router-link
           >
         </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'Graphs' }" class="nav-link"
+            >Graphs</router-link
+          >
+        </li>
 
         <li class="nav-item">
           <router-link :to="{ name: 'Help' }" class="nav-link"
