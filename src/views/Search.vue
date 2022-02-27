@@ -16,16 +16,13 @@
           <div class="col">
             <select name="most-common" id="most-commonID" v-model="types">
               <option disabled selected value="">Select One</option>
-              <option value="Hydertrophic Cardiomyopathy">
-                Hydertrophic Cardiomyopathy
-              </option>
+              <option value="Hydertorophic">Hydertrophic Cardiomyopathy</option>
               <option value="Dilated Cardiomyopathy">
                 Dilated Cardiomyopathy
               </option>
               <option value="Arrhythmogenic Right Ventricular Cardiomyopathy">
                 Arrhythmogenic Right Ventricular Cardiomyopathy
               </option>
-              <option value="Other">Other</option>
             </select>
           </div>
         </div>
@@ -48,7 +45,6 @@
               <option value="TNNI3">TNNI3</option>
               <option value="MYL2">MYL2</option>
               <option value="TTN">TTN</option>
-              <option value="Other">Other</option>
             </select>
           </div>
         </div>
@@ -70,31 +66,31 @@
         <div class="container text-start border border-3">
           <div class="row">
             <div class="row py-2">
-            <div class="col">
-              <b>CatLabel:</b>
-              {{ disease.catLabel }}
-            </div>
-            <div class="row">
               <div class="col">
-                <b>OntologyId:</b>
-                {{ disease.terms[0].ontologyId }}
+                <b>CatLabel:</b>
+                {{ disease.catLabel }}
               </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <b>Gene Name:</b>
-                {{ disease.terms[0].name }}
+              <div class="row">
+                <div class="col">
+                  <b>OntologyId:</b>
+                  {{ disease.terms[0].ontologyId }}
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <b>Gene Description:</b>
-                {{ disease.terms[0].definition }}
+              <div class="row">
+                <div class="col">
+                  <b>Gene Name:</b>
+                  {{ disease.terms[0].name }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <b>Gene Description:</b>
+                  {{ disease.terms[0].definition }}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   </div>
@@ -103,32 +99,34 @@
 <script>
 import { computed, ref } from "vue";
 export default {
-  props: {
-    user: {
-      type: Object,
-      default: () => {},
-    },
-  },
   name: "Search",
 
   setup() {
     const search = ref(null);
-    const types = ref(null);
-    const genes = ref(null);
+    const types = ref("");
+    const genes = ref("");
     const data = ref();
-    const Id = search;
+
+    const synopsisId = search;
+    const type = types;
+    const gene = genes;
+
+    if(type == "Hydertorophic" & gene =="MYH7"){
+      const id = 192600;
+      console.log("hello", id);
+    }
 
     async function searchCardio() {
       let search_data = await fetch(
-        `https://hpo.jax.org/api/hpo/disease/OMIM%3A${Id.value}`
+        `https://hpo.jax.org/api/hpo/disease/OMIM:${synopsisId.value}`
       );
-
-      data.value = await search_data.json();
+      data.value = await search_data.json();            
     }
 
     const item = computed(() => {
       return data.value;
     });
+
     return { search, types, genes, searchCardio, item };
   },
 };
