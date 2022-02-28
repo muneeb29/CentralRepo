@@ -149,11 +149,11 @@
   </div>
 
   <div class="py-5">
-    <h1 class="container bg-dark text-white">Add Data</h1>
+    <h1 class="container bg-dark text-white">Upload CSV File</h1>
 
     <div>
       <div class="container bg-light py-5 hi-10">
-        <h3>Upload CSV File</h3>
+        <h3>Supported files: .csv - The data you submit must have two columns with no header names and should have x and y values</h3>
         <input type="file" class="form-control" id="customFile" />
         <br />
       </div>
