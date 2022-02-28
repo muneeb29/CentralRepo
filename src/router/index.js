@@ -7,7 +7,7 @@ import Forgot from "../views/Forgot.vue";
 import Help from "../views/Help.vue";
 import Notfound from "../views/Notfound.vue";
 import AddData from "../views/AddData.vue";
-import Dashboard from "../views/Dashboard.vue";
+import Showgraph from "../views/Showgraph.vue";
 import Search from "../views/Search.vue";
 import store from "../store";
 import { auth } from "../firebase/database";
@@ -56,9 +56,9 @@ const routes = [
     component: Help,
   },
   {
-    path: "/dashboard",
-    name: "Dashboard",
-    component: Dashboard,
+    path: "/showgraph",
+    name: "Showgraph",
+    component: Showgraph,
     beforeEnter: requireAuth,
   },
   {

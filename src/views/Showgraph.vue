@@ -1,7 +1,7 @@
 <template>
        <div class="row">
       <div class="col border border-3 py-3">
-        <h1>Dashboard</h1>
+        <h1>Show Graph</h1>
       </div>
 
 
