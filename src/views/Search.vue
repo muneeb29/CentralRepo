@@ -5,26 +5,21 @@
       <h5>Search Experimental Data By Type And Mutation Type</h5>
     </div>
   </div>
-  <form @submit.prevent="searchCardio">
-    <div class="row py-3">
-      <input type="text" v-model="search" />
-
-      <div class="col mx-auto form-control-lg">
-        <label for="">Most Common Forms Of Cardiomyopathy</label>
-
-        <div class="row py-3">
-          <div class="col">
-            <select name="most-common" id="most-commonID" v-model="types">
-              <option disabled selected value="">Select One</option>
-              <option value="Hydertorophic">Hydertrophic Cardiomyopathy</option>
-              <option value="Dilated Cardiomyopathy">
-                Dilated Cardiomyopathy
-              </option>
-              <option value="Arrhythmogenic Right Ventricular Cardiomyopathy">
-                Arrhythmogenic Right Ventricular Cardiomyopathy
-              </option>
-            </select>
-          </div>
+  <form @submit.prevent="HPO">
+    <div class="col mx-auto form-control-lg">
+      <label for="">Most Common Forms Of Cardiomyopathy</label>
+      <div class="row py-3">
+        <div class="col">
+          <select name="most-common" id="most-commonID" v-model="types">
+            <option disabled selected value="">Select One</option>
+            <option value="Hydertorophic">Hydertrophic Cardiomyopathy</option>
+            <option value="Dilated Cardiomyopathy">
+              Dilated Cardiomyopathy
+            </option>
+            <option value="Arrhythmogenic Right Ventricular Cardiomyopathy">
+              Arrhythmogenic Right Ventricular Cardiomyopathy
+            </option>
+          </select>
         </div>
       </div>
     </div>
@@ -56,6 +51,7 @@
       </div>
     </div>
   </form>
+
   <div class="row py-3">
     <div class="col">
       <h4>Results:</h4>
@@ -102,32 +98,48 @@ export default {
   name: "Search",
 
   setup() {
-    const search = ref(null);
     const types = ref("");
     const genes = ref("");
     const data = ref();
+    let id = ref("");
 
-    const synopsisId = search;
     const type = types;
     const gene = genes;
 
-    if(type == "Hydertorophic" & gene =="MYH7"){
-      const id = 192600;
-      console.log("hello", id);
+    function HPO() {
+      if ((type.value == "Hydertorophic") & (gene.value == "MYH7")) {
+        id = 192600;
+        searchCardio(id);
+      }
+
+      if ((type.value == "Hydertorophic") & (gene.value == "TNNT2")) {
+        id = 115195;
+        searchCardio(id);
+      }
+
+      if ((type.value == "Hydertorophic") & (gene.value == "MYBC3")) {
+        id = 115197;
+        searchCardio(id);
+      }
+
+      if ((type.value == "Hydertorophic") & (gene.value == "TPM1")) {
+        id = 115196;
+        searchCardio(id);
+      }
     }
 
-    async function searchCardio() {
+    async function searchCardio(id) {
       let search_data = await fetch(
-        `https://hpo.jax.org/api/hpo/disease/OMIM:${synopsisId.value}`
+        `https://hpo.jax.org/api/hpo/disease/OMIM:${id}`
       );
-      data.value = await search_data.json();            
+      data.value = await search_data.json();
     }
 
     const item = computed(() => {
       return data.value;
     });
 
-    return { search, types, genes, searchCardio, item };
+    return { HPO, types, genes, searchCardio, item };
   },
 };
 </script>
