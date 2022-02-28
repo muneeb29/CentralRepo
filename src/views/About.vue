@@ -6,7 +6,7 @@
       </div>
 
       <div class="txt-alignment">
-      <div class="col container text-black-70 rounded py-4">
+        <div class="col container text-black-70 rounded py-4">
           <p>
             The purpose of the web application is to provide a central
             repository for experimental data on force/tension development and
@@ -17,16 +17,14 @@
           </p>
 
           <div class="col-lg-3 rounded mx-auto d-block">
-            <!-- <img src="../img/cardiomyopathy.png" alt="about page" class="about"> -->
-            <Images>
-            </Images>
+            <Images> </Images>
           </div>
 
-          <div class="col py3 ">
+          <div class="col py3">
             <h4>The primary responsibilities of this web application are:</h4>
           </div>
 
-          <div class="col ">
+          <div class="col">
             <ul>
               <li>
                 To enable experimental data to be submitted to the database.
@@ -65,17 +63,17 @@
 import Images from "@/components/Images";
 export default {
   name: "About",
-  components: {Images},
+  components: { Images },
 };
 </script>
 
 <style>
-.about{
+.about {
   width: 100%;
   height: 20rem;
 }
 
-.txt-alignment{
-    text-align: justify;
+.txt-alignment {
+  text-align: justify;
 }
 </style>
