@@ -28,7 +28,7 @@
         </li>
         <li class="nav-item">
           <router-link :to="{ name: 'Showgraph' }" class="nav-link"
-            >Show Graph</router-link
+            >Graph</router-link
           >
         </li>
            <li class="nav-item">

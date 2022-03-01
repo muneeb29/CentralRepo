@@ -10,7 +10,13 @@
       <label for="">Most Common Forms Of Cardiomyopathy</label>
       <div class="row py-3">
         <div class="col">
-          <select name="most-common" id="most-commonID" v-model="types">
+          <select
+            name="most-common"
+            id="most-commonID"
+            class="form-select mx-auto"
+            style="width: auto"
+            v-model="types"
+          >
             <option disabled selected value="">Select One</option>
             <option value="Hydertorophic">Hydertrophic Cardiomyopathy</option>
             <option value="Dilated Cardiomyopathy">
@@ -29,7 +35,13 @@
 
         <div class="row">
           <div class="col">
-            <select name="mut-gene" id="mut-geneID" v-model="genes">
+            <select
+              name="mut-gene"
+              id="mut-geneID"
+              class="form-select mx-auto"
+              style="width: auto"
+              v-model="genes"
+            >
               <option disabled selected value="">Select One</option>
               <option value="MYH7">MYH7</option>
               <option value="MYBC3">MYBC3</option>
@@ -91,12 +103,16 @@
     </div>
 
     <div class="container py-5 text-white">
-    <br/> <br/>
-    <br/> <br/>
-    <br/> <br/>
-    <br/> <br/>
-    <br/>
-<!-- Empty Footer To Create Space -->
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <!-- Empty Footer To Create Space -->
     </div>
   </div>
 </template>
