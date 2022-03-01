@@ -46,10 +46,10 @@
                   <ResizeAuto>
                     <template v-slot:default="{ resize }">
                       <textarea
-                        rows="2"
+                        rows="5"
                         class="form-control form-control-lg"
                         v-model="message"
-                        placeholder="Message"
+                        placeholder="Message:"
                         @input="resize"
                       ></textarea>
                     </template>
