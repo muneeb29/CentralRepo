@@ -89,6 +89,15 @@
         </div>
       </div>
     </div>
+
+    <div class="container py-5 text-white">
+    <br/> <br/>
+    <br/> <br/>
+    <br/> <br/>
+    <br/> <br/>
+    <br/>
+<!-- Empty Footer To Create Space -->
+    </div>
   </div>
 </template>
 

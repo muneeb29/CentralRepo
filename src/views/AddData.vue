@@ -7,15 +7,17 @@
 
   <div class="container bg-white py-3"></div>
   </div>
+  
   <div class="container border">
     <div class="row">
       <div class="col text-start">
         <h4>Cardiomyopathy Information</h4>
       </div>
 
-      <div class="col">
-        <h4>Experimental Data</h4>
-      </div>
+   <div class="col mx-auto">
+    <h4 class="container bg-white mx-auto text-black">Upload CSV File</h4>
+  </div>
+
 
       <div class="row">
         <div class="col form-control-lg">
@@ -25,88 +27,20 @@
               <div class="col">
                 <input type="text" name="data-src" id="data-srcID" />
               </div>
+
+              <div class="col mx-auto">
+                <input type="file" class="form-control">
+              </div>
             </div>
           </div>
         </div>
-        <div class="col mx-auto form-control-lg">
-          <select name="exp-1" id="exp-1ID">
-            <option disabled selected value="">Select One</option>
-            <option value="ledv">
-              Left Ventricular End Diastolic Volume (ledv)
-            </option>
-            <option value="redv">
-              Right ventricular End Diastolic Volume (redv)
-            </option>
-            <option value="lesv">
-              Left Ventricular End Systolic Volume (lesv)
-            </option>
-            <option value="resv">
-              Right Ventricular End Systolic Volume (resv)
-            </option>
-            <option value="lvef">
-              Left Ventricular Ejection Fraction (lvef)
-            </option>
-            <option value="rvef">
-              Right Ventricular Ejection Fraction (rvef)
-            </option>
-            <option value="lvmass">Left Ventricular Mass (lvmass)</option>
-            <option value="rvmass">Right Ventricular Mass (rvmass)</option>
-            <option value="lsv">Left Systolic Volume (lsv)</option>
-            <option value="rsv">Right Systolic Volume (rsv)</option>
-            <option value="scar">Fibrosis/scarring (scar)</option>
-            <option value="gender">Fender</option>
-            <option value="age">Age at MRI</option>
-            <option value="HCM">Apical HCM</option>
-            <option value="death">Sudden Cardiac Death</option>
-            <option value="hypertension">Hypertension</option>
-            <option value="diabetes">Diabetes</option>
-            <option value="myectomy">Myectomy</option>
-            <option value="other">Other</option>
-          </select>
 
-          <div class="row py-2">
-            <div class="col-">
-              <select name="exp-2" id="exp-2ID">
-                <option disabled selected value="">Select One</option>
-                <option value="ledv">
-                  Left Ventricular End diastolic Volume (ledv)
-                </option>
-                <option value="redv">
-                  Right Ventricular End diastolic Volume (redv)
-                </option>
-                <option value="lesv">
-                  Left Ventricular End systolic Volume (lesv)
-                </option>
-                <option value="resv">
-                  Right Ventricular End Systolic Volume (resv)
-                </option>
-                <option value="lvef">
-                  Left Ventricular Ejection Fraction (lvef)
-                </option>
-                <option value="rvef">
-                  Right Ventricular Ejection Fraction (rvef)
-                </option>
-                <option value="lvmass">Left Vntricular mass (lvmass)</option>
-                <option value="rvmass">Right Ventricular mass (rvmass)</option>
-                <option value="lsv">Left Systolic volume (lsv)</option>
-                <option value="rsv">Right Systolic volume (rsv)</option>
-                <option value="scar">Fibrosis/scarring (scar)</option>
-                <option value="gender">Gender</option>
-                <option value="age">Age at MRI</option>
-                <option value="HCM">Apical HCM</option>
-                <option value="death">Sudden Cardiac Death</option>
-                <option value="hypertension">Hypertension</option>
-                <option value="diabetes">Diabetes</option>
-                <option value="myectomy">Myectomy</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-          </div>
+  
         </div>
       </div>
 
       <div class="row">
-        <div class="col text-start form-control-lg">
+        <div class="col text-start form-control-lg ">
           <label for="">Most Common Forms Of Cardiomyopathy</label>
 
           <div class="row">
@@ -143,20 +77,100 @@
                 <option value="Other">Other</option>
               </select>
             </div>
+            <!-- Button for adding data for either CSV File Or other inputs on left -->
+            <div class="col mx-auto">
+                <button class="btn-dark btn-lg px-5" type="submit">Add Data</button>
+
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+
 
   <div class="py-5">
-    <h1 class="container bg-dark text-white">Add Data</h1>
+    <h1 class="container bg-dark text-white">Or Enter Manually</h1>
 
     <div>
       <div class="container bg-light py-5 hi-10">
-        <h3>Upload CSV File</h3>
-        <input type="file" class="form-control" id="customFile" />
-        <br />
+        <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter:">
+        </div>
+        </div>
+          <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>
+          <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>
+          <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>
+          <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>
+          <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>  <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>  <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>  <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>  <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>  <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>  <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>  <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>  <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>  <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>  <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>  <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>  <div class="row py-2">
+          <div class="col col-sm-5 mx-auto">
+          <input type="text" class="form-control mx-auto" placeholder="Enter">
+        </div>
+        </div>
       </div>
 
       <button class="btn-dark btn-lg px-5" type="submit">Add Data</button>
