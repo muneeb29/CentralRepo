@@ -25,7 +25,7 @@
           </div>
 
           <div class="col">
-            <a class="btn border" :href="news.link"> View More...</a>
+            <a class="btn border" :href="news.link" target="_blank" rel="noreferrer noopener"> View More...</a>
           </div>
         </div>
       </div>
