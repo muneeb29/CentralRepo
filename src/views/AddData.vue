@@ -10,11 +10,11 @@
   
   <div class="container border">
     <div class="row">
-      <div class="col text-start">
+      <div class="col text-start py-2">
         <h4>Cardiomyopathy Information</h4>
       </div>
 
-   <div class="col mx-auto">
+   <div class="col mx-auto py-2">
     <h4 class="container bg-white mx-auto text-black">Upload CSV File</h4>
   </div>
 
