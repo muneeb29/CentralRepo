@@ -54,7 +54,7 @@
             <option value="lsv">Left Systolic Volume (lsv)</option>
             <option value="rsv">Right Systolic Volume (rsv)</option>
             <option value="scar">Fibrosis/scarring (scar)</option>
-            <option value="gender">Fender</option>
+            <option value="gender">Gender</option>
             <option value="age">Age at MRI</option>
             <option value="HCM">Apical HCM</option>
             <option value="death">Sudden Cardiac Death</option>
