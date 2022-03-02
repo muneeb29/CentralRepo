@@ -2,11 +2,15 @@
 
 ### Trello Board
 
+```
 https://trello.com/b/QOGsrNP3/kanban-cardiomyopathies
+```
 
 ### Project Management Notes
 
+```
 Located within the "Project Weekly logs.docx" file
+```
 
 ## Project setup
 
