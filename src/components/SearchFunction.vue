@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="HPO">
+  <form @submit.prevent="determine">
     <div class="col mx-auto form-control-lg">
       <label for="">Most Common Forms Of Cardiomyopathy</label>
       <div class="row py-3">
@@ -9,14 +9,11 @@
             id="most-commonID"
             class="form-select mx-auto"
             style="width: auto"
-            v-model="types"
+            v-model="type"
           >
             <option disabled selected value="">Select One</option>
             <option value="Hydertorophic">Hydertrophic Cardiomyopathy</option>
             <option value="Dilated">Dilated Cardiomyopathy</option>
-            <option value="Arrhythmogenic">
-              Arrhythmogenic Right Ventricular Cardiomyopathy
-            </option>
           </select>
         </div>
       </div>
@@ -32,7 +29,8 @@
               id="mut-geneID"
               class="form-select mx-auto"
               style="width: auto"
-              v-model="genes"
+              v-model="gene"
+              required
             >
               <option disabled selected value="">Select One</option>
               <option value="MYH7">MYH7</option>
@@ -60,25 +58,24 @@
     <div class="col">
       <h4>Results:</h4>
     </div>
-
     <div v-if="ncbiList">
+      <div class="container bg-dark text-white border py-2">
+        <h6>Results For Gene:</h6>
+      </div>
       <div v-for="dis in ncbiList.result" :key="dis">
-        <div class="container border text-start">
-          <div class="row py-2">
+        <div class="container border border-3">
+          <div class="row mx-auto">
             <div class="col">
-              <b>Name:</b>
-              {{ dis.name }}
+              <b> {{ dis.name }}</b>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <b>Description:</b>
-              {{ dis.description }}
+              <b>{{ dis.description }}</b>
             </div>
           </div>
-          <div class="row">
+          <div class="row text-start">
             <div class="col">
-              <b>Summary</b>
               {{ dis.summary }}
             </div>
           </div>
@@ -86,8 +83,16 @@
       </div>
     </div>
 
+    <div>
+      <br />
+      <br />
+    </div>
+
     <div v-if="error">{{ error }}</div>
     <div v-if="hpoList">
+      <div class="container bg-dark text-white border py-2">
+        <h6>Results For Disease:</h6>
+      </div>
       <div :span="8" v-for="disease in hpoList.catTermsMap" :key="disease">
         <div class="container text-start border border-3">
           <div class="row">
@@ -124,169 +129,34 @@
 
 <script>
 import { ref } from "vue";
+import hpoCheck from "@/composables/hpoCheck";
+import ncbiCheck from "@/composables/ncbiCheck";
 export default {
-  name: "Search",
+  name: "SearchFunction",
 
   setup() {
-    const hpoList = ref("");
-    const ncbiList = ref("");
-    const error = ref(null);
-    const types = ref("");
-    const genes = ref("");
-    let id = ref("");
-    let ids = ref("");
+    const type = ref("");
+    const gene = ref("");
 
-    const type = types;
-    const gene = genes;
+    const { hpoList, checkHPO, searchCardio, error } = hpoCheck();
+    const { ncbiList, checkNCBI, searchNCBI, error1 } = ncbiCheck();
 
-    function HPO() {
-      if (type.value == "Hydertorophic" && gene.value == "MYH7") {
-        id = 192600;
-        searchCardio(id);
-      }
-      if (type.value == "Hydertorophic" && gene.value == "MYBPC3") {
-        id = 115197;
-        searchCardio(id);
-      }
-
-      if (type.value == "Hydertorophic" && gene.value == "TNNT2") {
-        id = 115195;
-        searchCardio(id);
-      }
-
-      if (type.value == "Hydertorophic" && gene.value == "ACTC") {
-        id = 612098;
-        searchCardio(id);
-      }
-      if (type.value == "Hydertorophic" && gene.value == "TPM1") {
-        id = 115196;
-        searchCardio(id);
-      }
-
-      if (type.value == "Hydertorophic" && gene.value == "TNNC1") {
-        id = 613243;
-        searchCardio(id);
-      }
-      if (type.value == "Hydertorophic" && gene.value == "TNNI3") {
-        id = 613690;
-        searchCardio(id);
-      }
-
-      if (type.value == "Hydertorophic" && gene.value == "MYL2") {
-        id = 608758;
-        searchCardio(id);
-      }
-
-      if (type.value == "Dilated" && gene.value == "MYH7") {
-        id = 613426;
-        searchCardio(id);
-      }
-      if (type.value == "Dilated" && gene.value == "TNNT2") {
-        id = 601494;
-        searchCardio(id);
-      }
-      if (type.value == "Dilated" && gene.value == "ACTC") {
-        id = 613424;
-        searchCardio(id);
-      }
-      if (type.value == "Dilated" && gene.value == "TPM1") {
-        id = 611878;
-        searchCardio(id);
-      }
-      if (type.value == "Dilated" && gene.value == "TNNC1") {
-        id = 611879;
-        searchCardio(id);
-      }
-      if (type.value == "Dilated" && gene.value == "TNNI3") {
-        id = 611880;
-        searchCardio(id);
-      }
-      
-      else {
-        id = 0;
-      }
-
-// NCBI Database
-      if (gene.value == "MYH7") {
-        ids = 4625;
-        searchNCBI(ids);
-      }
-      if (gene.value == "MYBPC3") {
-        ids = 4607;
-        searchNCBI(ids);
-      }
-      if (gene.value == "TNNT2") {
-        ids = 7139;
-        searchNCBI(ids);
-      }
-      if (gene.value == "ACTC") {
-        ids = 70;
-        searchNCBI(ids);
-      }
-      if (gene.value == "TPM1") {
-        ids = 7168;
-        searchNCBI(ids);
-      }
-      if (gene.value == "TNNC1") {
-        ids = 7134;
-        searchNCBI(ids);
-      }
-      if (gene.value == "TNNI3") {
-        ids = 7137;
-        searchNCBI(ids);
-      }
-      if (gene.value == "MYL2") {
-        ids = 4633;
-        searchNCBI(ids);
-      }
-      if (gene.value == "TTN") {
-        ids = 7273;
-        searchNCBI(ids);
-      }
-    }
-    async function searchCardio(id) {
-      try {
-        const resp = await fetch(
-          `https://hpo.jax.org/api/hpo/disease/OMIM:${id}`
-        );
-
-        if (!resp.ok) {
-          throw error("No Results Found!");
-        }
-        hpoList.value = await resp.json();
-      } catch (e) {
-        error.value = e;
-      }
-    }
-
-    async function searchNCBI(ids) {
-      try {
-        const resp = await fetch(
-          `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=gene&format=json&id=` +
-            ids
-        );
-
-        if (!resp.ok) {
-          throw error("No Results Found!");
-        }
-        ncbiList.value = await resp.json();
-        console.log(ncbiList.value);
-      } catch (e) {
-        error.value = e;
-      }
+    function determine() {
+      checkHPO(type, gene);
+      checkNCBI(type, gene);
     }
 
     return {
-      HPO,
-      types,
-      genes,
-      searchCardio,
-      hpoList,
+      determine,
+      type,
+      gene,
       ncbiList,
+      hpoList,
       searchNCBI,
+      searchCardio,
       error,
+      error1,
     };
   },
 };
 </script>
-

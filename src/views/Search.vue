@@ -5,45 +5,32 @@
       <h5>Search Experimental Data By Type And Mutation Type</h5>
     </div>
   </div>
-<div>
-      <Suspense>
-        <template #default>
-          <SearchFunction/>
-        </template>
+  <div>
+    <Suspense>
+      <template #default>
+        <SearchFunction />
+      </template>
 
-        <template #fallback>
-          <div>Searching...</div>
-        </template>
-      </Suspense>
-    </div>
+      <template #fallback>
+        <div>Searching...</div>
+      </template>
+    </Suspense>
+  </div>
 
-
-  <div class="container py-5 text-white">
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+  <div class="container py-5">
     <br />
     <br />
     <!-- Empty Footer To Create Space -->
   </div>
 </template>
 
-
 <script>
 import SearchFunction from "@/components/SearchFunction.vue";
 export default {
-name: "Search",
-components: {SearchFunction},
-setup(){
-
-}
-}
+  name: "Search",
+  components: { SearchFunction },
+  setup() {},
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
