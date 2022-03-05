@@ -17,6 +17,7 @@ import {
   getDoc,
   setDoc,
   addDoc,
+  deleteDoc,
   updateDoc,
   where,
   query,
@@ -32,6 +33,7 @@ import {
 } from "firebase/storage";
 
 //add firebaseConfig
+
 const firebaseConfig = {
   apiKey: "AIzaSyD2CujV1B8NXZeAXV1BYkPVFg9qepcKumU",
   authDomain: "cardiomyopathy-f93f7.firebaseapp.com",
@@ -80,6 +82,7 @@ export {
   getDoc,
   addDoc,
   updateDoc,
+  deleteDoc,
   signOut,
   FirebaseError,
   sendPasswordResetEmail,
