@@ -56,6 +56,7 @@
                     <option value="arrhythmogenicright">
                       Arrhythmogenic Right Ventricular Cardiomyopathy
                     </option>
+                    <option value="other">Other</option>
                   </vee-field>
                   <ErrorMessage class="text-danger mx-2" name="mostcommon" />
                 </div>
@@ -78,6 +79,7 @@
                   <option value="TNNI3">TNNI3</option>
                   <option value="MYL2">MYL2</option>
                   <option value="TTN">TTN</option>
+                  <option value="Other">Other</option>
                 </vee-field>
                 <ErrorMessage class="text-danger mx-2" name="mutgene" />
               </div>
@@ -118,12 +120,7 @@
 
 <script>
 import Papa from "papaparse";
-import {
-  db,
-  auth,
-  addDoc,
-  collection,
-} from "../firebase/database";
+import { db, auth, addDoc, collection } from "../firebase/database";
 import { mapState } from "vuex";
 import router from "../router";
 
@@ -257,10 +254,20 @@ export default {
           const userEmail = auth?.currentUser?.email;
           //This instructions below are used to get the date now
           let today = new Date();
-          let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-          let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+          let date =
+            today.getFullYear() +
+            "-" +
+            (today.getMonth() + 1) +
+            "-" +
+            today.getDate();
+          let time =
+            today.getHours() +
+            ":" +
+            today.getMinutes() +
+            ":" +
+            today.getSeconds();
           //we get date format 2022-3-4 19:51:15 (example)
-          let createdAt = date+' '+time;
+          let createdAt = date + " " + time;
           /*We use addDoc it's a function in firebase to add a new document
             and we pass all data of document to add a new data source to the users collection
           */
@@ -270,7 +277,7 @@ export default {
             mostCommon,
             mutGene,
             csvContent: this.csvFileContent,
-            createdAt
+            createdAt,
           });
           //END MODIFICATIONS ⚙
 
@@ -294,8 +301,6 @@ export default {
           console.log("mostcommon", mostcommon);
           console.log("mutgene", mutgene);
           console.log("filteredcsv", csvFileContent);
-
-
 
           await this.$store.dispatch("addthedatawithfile", {
             // sending these values to the addthedatawithfile function

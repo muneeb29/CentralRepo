@@ -67,7 +67,6 @@
             <td>{{ data.createdAt }}</td>
             <td>
               <div
-                v-if="currentUserEmail == data.email"
                 class="btn btn-danger"
                 @click="itemDsDelete = data.dataSource"
               >
@@ -96,7 +95,6 @@ export default {
     return {
       dataAll: [], //will contain all data source of the actual user
       itemDsDelete: "", //will contain the delete status if is empty the modal not displayed else he display the delete modal to confirm
-      currentUserEmail: "",
     };
   },
   methods: {
@@ -104,13 +102,15 @@ export default {
     //The function load help us to get all data source of the current user, it's will executed every mount of ListData.vue
     async load() {
       //We use query to make a new query in our users collection and we add a condition using where
-      const querySnapshot = await getDocs(usersCollection);
-      querySnapshot.forEach((doc) => {
-        if (doc.data().csvContent) {
-          this.dataAll.push(doc.data());
-        }
-      });
+      const q = query(
+        usersCollection,
+        where("email", "==", auth.currentUser.email)
+      );
+      const querySnapshot = await getDocs(q);
       //We get all documents and we add them into our dataAll array
+      querySnapshot.forEach((doc) => {
+        this.dataAll.push(doc.data());
+      });
     },
     //The function deleteItem get the data source name in arguments and help us to delete a data source
     async deleteItem(DS) {
@@ -136,7 +136,8 @@ export default {
     // END MODIFICATIONS ⚙
   },
   mounted() {
-    this.currentUserEmail = auth.currentUser.email;
+    const currentUserEmail = auth.currentUser.email;
+    console.log(currentUserEmail);
     this.load();
   },
 };
