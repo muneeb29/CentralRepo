@@ -21,6 +21,7 @@
                       v-model="email"
                       class="form-control form-control-lg"
                       placeholder="Enter Email"
+                      data-test-id="reEmail"
                     />
                     <label class="form-label">Email</label>
                     <ErrorMessage class="text-danger mx-2" name="email" />
@@ -35,12 +36,13 @@
                     :disabled="formCorrectlySubmitted"
                     class="btn btn-outline-light btn-lg px-5"
                     @click="resetPassword"
+                    data-test-id="reSubmit"
                   >
                     Reset Password
                   </button>
                 </vee-form>
               </div>
-              <p v-if="formCorrectlySubmitted" class="lead text-success mt-5">
+              <p v-if="formCorrectlySubmitted"  class="lead text-success mt-5"> 
                 A password reset email was sent to your email!
               </p>
             </div>
