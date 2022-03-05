@@ -1,6 +1,4 @@
-# cardiomyopathies
-
-## Project setup
+# Web application platform for cardiomyopathies
 
 ### Trello Board
 
@@ -13,6 +11,8 @@ https://trello.com/b/QOGsrNP3/kanban-cardiomyopathies
 ```
 Located within the project - Weekly-logs.docx file.
 ```
+
+### Project setup
 
 ```
 npm install
