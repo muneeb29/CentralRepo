@@ -2,6 +2,15 @@
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
       <ul class="navbar-nav">
+        <li class="navbar-brand">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Font_Awesome_5_solid_heartbeat.svg"
+            class="img-fluid"
+            alt="Icon"
+            width="35"
+            height="30"
+          />
+        </li>
         <li class="nav-item">
           <router-link :to="{ name: 'Home' }" class="nav-link"
             >Home</router-link
@@ -13,18 +22,51 @@
           >
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'Graphs' }" class="nav-link"
-            >Graphs</router-link
+          <router-link :to="{ name: 'AddData' }" class="nav-link"
+            >Add Data</router-link
           >
         </li>
         <li class="nav-item">
+          <router-link :to="{ name: 'Showgraph' }" class="nav-link"
+            >Graph</router-link
+          >
+        </li>
+           <li class="nav-item">
+          <router-link :to="{ name: 'Search' }" class="nav-link"
+            >Search</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'Dashboard' }" class="nav-link"
+            >Dashboard</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'Help' }" class="nav-link"
+            >Help</router-link
+          >
+        </li>
+      </ul>
+
+      <ul class="navbar-nav">
+        <li v-if="!userLoggedIn" class="nav-item">
           <router-link :to="{ name: 'Login' }" class="nav-link"
             >Login</router-link
           >
         </li>
-        <li class="nav-item">
+        <li v-if="!userLoggedIn" class="nav-item">
           <router-link :to="{ name: 'Signup' }" class="nav-link"
-            >Signup</router-link
+            >Sign Up</router-link
+          >
+        </li>
+        <li @click="signoutSession" v-if="userLoggedIn" class="nav-item">
+          <router-link :to="{ name: 'Home' }" class="nav-link"
+            >Sign Out</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'Contact' }" class="nav-link"
+            >Contact</router-link
           >
         </li>
       </ul>
@@ -33,7 +75,25 @@
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+
+export default {
+  computed: {
+    ...mapState({
+      userLoggedIn: (state) => state.auth.userLoggedIn,
+    }),
+  },
+  methods: {
+    async signoutSession() {
+      try {
+        await this.$store.dispatch("signout");
+      } catch (error) {
+        this.forgot_password_submission = false;
+        return;
+      }
+    },
+  },
+};
 </script>
 
 <style>

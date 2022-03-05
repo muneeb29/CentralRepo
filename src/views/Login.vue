@@ -12,27 +12,46 @@
 
               <div class="form-outline form-white mb-4">
                 <input
+                  v-model="email"
+                  name="email"
                   type="email"
                   id="emailID"
                   class="form-control form-control-lg"
+                  placeholder="Enter Email"
                 />
                 <label class="form-label" for="typeEmailX">Email</label>
               </div>
 
               <div class="form-outline form-white mb-4">
                 <input
+                  v-model="password"
+                  :disabled="!passwordInputEnabled"
+                  name="password"
                   type="password"
                   id="passwordID"
                   class="form-control form-control-lg"
+                  placeholder="Enter Password"
                 />
                 <label class="form-label" for="typePasswordX">Password</label>
               </div>
 
               <p class="small mb-5 pb-lg-2">
-                <a class="text-white-50" href="#!">Forgot password?</a>
+                <router-link
+                  :to="{ name: 'Forgot' }"
+                  class="text-white-50 fw-bold"
+                  >Forgot Password</router-link
+                >
               </p>
 
-              <button class="btn btn-outline-light btn-lg px-5" type="submit">
+              <p v-if="loginError" class="lead text-warning mt-2">
+                {{ loginError }}
+              </p>
+
+              <button
+                class="btn btn-outline-light btn-lg px-5"
+                type="submit"
+                @click="login"
+              >
                 Login
               </button>
             </div>
@@ -54,9 +73,65 @@
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+
+export default {
+  name: "RegisterForm",
+  computed: {
+    // getting data from the vuex store
+    ...mapState({
+      userLoggedIn: (state) => state.auth.userLoggedIn,
+      loginError: (state) => state.auth.loginError,
+      passwordInputEnabled: (state) => state.auth.passwordInputEnabled,
+    }),
+  },
+  data() {
+    return {
+      // validation rules
+      schema: {
+        name: "required|min:3|max:100|alpha_spaces",
+        email: "required|min:3|max:100|email",
+        telephone: "required",
+        address: "required|min:3|max:100",
+        age: "required|min_value:18|max_value:100",
+        password: "required|min:3|max:100",
+        confirm_password: "passwords_mismatch:@password",
+        country: "required|country_excluded:Antarctica",
+      },
+      userData: {
+        country: "United Kingdom",
+        email: "",
+        password: "",
+      },
+      // initial values of the form which get updated
+      // when the user types
+      email: "",
+      password: "",
+      reg_in_submission: false,
+    };
+  },
+  methods: {
+    // what is done when you click on the login button
+    async login() {
+      // extracting the values from the data() from above
+      const { email, password } = this;
+      this.reg_in_submission = true;
+
+      try {
+        // sending these values to the login function in vuex store
+        await this.$store.dispatch("login", { email, password });
+
+        // if there is a logged in user, redirect to the homepage
+        if (this.userLoggedIn) {
+          this.$router.push("Dashboard");
+        }
+      } catch (error) {
+        this.reg_in_submission = false;
+        return;
+      }
+    },
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
