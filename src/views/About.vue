@@ -13,7 +13,7 @@
             sarcomere length shortening in the cardiomyopathic cells. This
             application also provides details relating to the type of
             cardiomyopathy and present data visually to users when queried. The
-            system should provides a comfortable user experience.
+            system should provide a comfortable user experience.
           </p>
 
           <div class="col-lg-3 rounded mx-auto d-block">
