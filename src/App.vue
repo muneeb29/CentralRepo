@@ -1,9 +1,9 @@
 <template>
-
-  <navbar></navbar>
-  <div class="py-2"></div>
-  <router-view />
-  <Footer/>
+  <div class="all_content">
+    <navbar></navbar>
+    <router-view />
+  </div>
+  <Footer />
 </template>
 
 <script>
@@ -20,11 +20,13 @@ export default {
 
 <style>
 #app {
-  font-family: Arial, Helvetica, sans-serif,;
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
-
+.all_content {
+  margin-bottom: 80px;
+}
 </style>

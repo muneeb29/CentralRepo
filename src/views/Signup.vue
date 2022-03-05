@@ -1,5 +1,5 @@
 <template>
-  <div class="container py-5 h-100">
+  <div class="container py-5 h-100" id="register_form">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card bg-dark text-white" style="border-radius: 1rem">
@@ -19,6 +19,7 @@
                     <vee-field
                       type="text"
                       name="name"
+                      id="name"
                       v-model="name"
                       class="form-control form-control-lg"
                       placeholder="Enter Name"
@@ -32,6 +33,7 @@
                     <vee-field
                       type="text"
                       name="address"
+                      id="address"
                       v-model="address"
                       class="form-control form-control-lg"
                       placeholder="Enter Address"
@@ -46,6 +48,7 @@
                     <vee-field
                       type="number"
                       name="telephone"
+                      id="telephone"
                       v-model="telephone"
                       class="form-control form-control-lg"
                       placeholder="Enter Telephone"
@@ -60,6 +63,7 @@
                       type="text"
                       name="institutionalaffiliation"
                       v-model="institutionalaffiliation"
+                      id="institutionalaffiliation"
                       class="form-control form-control-lg"
                       placeholder="Enter Institutional Affiliation"
                       test-data-id="Ins-Aff"
@@ -75,6 +79,7 @@
                     <vee-field
                       type="email"
                       name="email"
+                      id="email"
                       v-model="email"
                       class="form-control form-control-lg"
                       placeholder="Enter Email"
@@ -116,6 +121,7 @@
                     <vee-field
                       type="password"
                       name="confirm_password"
+                      id="passwordConfirm"
                       class="form-control form-control-lg"
                       placeholder="Confirm Password"
                       test-data-id="Confirm-Password"

@@ -75,12 +75,12 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapState({
-      userLoggedIn: (state) => state.auth.userLoggedIn,
+    ...mapGetters({
+      userLoggedIn : 'get_user_loggedIn',
     }),
   },
   methods: {
