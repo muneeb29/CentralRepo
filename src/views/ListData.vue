@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row py-4">
     <div class="col-12 border border-3 py-3">
       <h1>List Data</h1>
     </div>

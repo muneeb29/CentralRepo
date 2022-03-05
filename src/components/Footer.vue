@@ -20,6 +20,6 @@ export default {
   left: 0;
   right: 0;
   width: 100%;
-  height: 60px;
+  height: 70px;
 }
 </style>

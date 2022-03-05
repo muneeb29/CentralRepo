@@ -1,6 +1,6 @@
 <template>
   <body>
-    <div class="row">
+    <div class="row py-4">
       <div class="col border border-3 py-3">
         <h1>About This Site</h1>
       </div>

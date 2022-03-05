@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="container bg-light border border-4 text-capitalize rounded">
+  <div class="py-4">
+    <div class="container bg-light border border-4 text-capitalize rounded ">
       <h3>Welcome To this Cardiomyopathy Research Application</h3>
     </div>
 
