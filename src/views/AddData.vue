@@ -56,7 +56,6 @@
                     <option value="arrhythmogenicright">
                       Arrhythmogenic Right Ventricular Cardiomyopathy
                     </option>
-                    <option value="other">Other</option>
                   </vee-field>
                   <ErrorMessage class="text-danger mx-2" name="mostcommon" />
                 </div>
@@ -79,7 +78,6 @@
                   <option value="TNNI3">TNNI3</option>
                   <option value="MYL2">MYL2</option>
                   <option value="TTN">TTN</option>
-                  <option value="Other">Other</option>
                 </vee-field>
                 <ErrorMessage class="text-danger mx-2" name="mutgene" />
               </div>

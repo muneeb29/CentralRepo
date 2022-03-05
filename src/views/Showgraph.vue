@@ -23,7 +23,6 @@
             <option value="arrhythmogenicright">
               Arrhythmogenic Right Ventricular Cardiomyopathy
             </option>
-            <option value="other">Other</option>
           </select>
         </div>
         <div class="col-2">
@@ -44,7 +43,6 @@
             <option value="TNNI3">TNNI3</option>
             <option value="MYL2">MYL2</option>
             <option value="TTN">TTN</option>
-            <option value="Other">Other</option>
           </select>
         </div>
         <div class="col-2">
@@ -115,7 +113,6 @@
             <option value="TNNI3">TNNI3</option>
             <option value="MYL2">MYL2</option>
             <option value="TTN">TTN</option>
-            <option value="Other">Other</option>
           </select>
         </div>
       </div>
