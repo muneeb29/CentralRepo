@@ -9,6 +9,7 @@
             alt="Icon"
             width="35"
             height="30"
+            style="filter: invert(1)"
           />
         </li>
         <li class="nav-item">
@@ -22,23 +23,18 @@
           >
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'AddData' }" class="nav-link"
-            >Add Data</router-link
+          <router-link :to="{ name: 'ListData' }" class="nav-link"
+            >List Data</router-link
           >
         </li>
         <li class="nav-item">
           <router-link :to="{ name: 'Showgraph' }" class="nav-link"
-            >Graph</router-link
-          >
-        </li>
-           <li class="nav-item">
-          <router-link :to="{ name: 'Search' }" class="nav-link"
-            >Search</router-link
+            >Show Graph</router-link
           >
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'Dashboard' }" class="nav-link"
-            >Dashboard</router-link
+          <router-link :to="{ name: 'Search' }" class="nav-link"
+            >Search</router-link
           >
         </li>
         <li class="nav-item">
@@ -75,12 +71,12 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapState({
-      userLoggedIn: (state) => state.auth.userLoggedIn,
+    ...mapGetters({
+      userLoggedIn: "get_user_loggedIn",
     }),
   },
   methods: {

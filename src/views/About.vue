@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import Images from "@/components/Images";
+import Images from "../components/Images.vue";
 export default {
   name: "About",
   components: { Images },

@@ -23,6 +23,11 @@ export default {
     formCorrectlySubmitted: false,
     welcomeMessage: "",
   },
+  getters:{
+    get_user_loggedIn(state){
+      return state.userLoggedIn;
+    }
+  },
   mutations: {
     // mutations let you modify the initial data
     toggleAuth(state) {

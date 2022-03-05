@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import News from "@/components/News.vue";
+import News from '../components/News.vue'
 import { mapState } from "vuex";
 
 export default {

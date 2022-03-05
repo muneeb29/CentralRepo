@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="news">
     <h1 class="border border-3">Latest News</h1>
     <div v-for="news in newsList.items" :key="news.id">
       <div class="container bg-light border border-4">
