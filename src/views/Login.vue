@@ -18,6 +18,7 @@
                   id="emailID"
                   class="form-control form-control-lg"
                   placeholder="Enter Email"
+                  test-data-id="Enter-Email"
                 />
                 <label class="form-label" for="typeEmailX">Email</label>
               </div>
@@ -31,6 +32,7 @@
                   id="passwordID"
                   class="form-control form-control-lg"
                   placeholder="Enter Password"
+                  test-data-id="Enter-Password"
                 />
                 <label class="form-label" for="typePasswordX">Password</label>
               </div>
@@ -51,6 +53,7 @@
                 class="btn btn-outline-light btn-lg px-5"
                 type="submit"
                 @click="login"
+                test-data-id="submitLogin"
               >
                 Login
               </button>

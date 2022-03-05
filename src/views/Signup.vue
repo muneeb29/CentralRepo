@@ -22,6 +22,7 @@
                       v-model="name"
                       class="form-control form-control-lg"
                       placeholder="Enter Name"
+                      test-data-id="Name"
                     />
                     <label class="form-label">Name</label>
                     <ErrorMessage class="text-danger mx-2" name="name" />
@@ -34,6 +35,7 @@
                       v-model="address"
                       class="form-control form-control-lg"
                       placeholder="Enter Address"
+                      test-data-id="Address"
                     />
                     <label class="form-label">Address</label>
                     <ErrorMessage class="text-danger mx-2" name="address" />
@@ -47,6 +49,7 @@
                       v-model="telephone"
                       class="form-control form-control-lg"
                       placeholder="Enter Telephone"
+                      test-data-id="Telephone"
                     />
                     <label class="form-label">Telephone</label>
                     <ErrorMessage class="text-danger mx-2" name="telephone" />
@@ -59,6 +62,7 @@
                       v-model="institutionalaffiliation"
                       class="form-control form-control-lg"
                       placeholder="Enter Institutional Affiliation"
+                      test-data-id="Ins-Aff"
                     />
                     <label class="form-label">Institutional Affiliation</label>
                     <ErrorMessage
@@ -74,6 +78,7 @@
                       v-model="email"
                       class="form-control form-control-lg"
                       placeholder="Enter Email"
+                      test-data-id="Email"
                     />
                     <label class="form-label">Email</label>
                     <ErrorMessage class="text-danger mx-2" name="email" />
@@ -86,6 +91,7 @@
                       v-model="password"
                       :bails="false"
                       v-slot="{ field, errors }"
+                      test-data-id="Password"
                     >
                       <input
                         type="password"
@@ -93,6 +99,7 @@
                         class="form-control form-control-lg"
                         placeholder="Enter Password"
                         v-bind="field"
+                        test-data-id="Password"
                       />
                       <div
                         class="text-danger"
@@ -111,11 +118,13 @@
                       name="confirm_password"
                       class="form-control form-control-lg"
                       placeholder="Confirm Password"
+                      test-data-id="Confirm-Password"
                     />
                     <label class="form-label">Confirm Password</label>
                     <ErrorMessage
                       class="text-danger mx-2"
                       name="confirm_password"
+                      test-data-id="Confirm-Password"
                     />
                   </div>
 
@@ -123,6 +132,7 @@
                     type="submit"
                     class="btn btn-outline-light btn-lg px-5"
                     @submit="register"
+                    test-data-id="Signup"
                   >
                     Signup
                   </button>
@@ -130,8 +140,8 @@
               </div>
             </div>
 
-            <div v-if="registerEmailSuccess" class="card mb-2">
-              <div class="card-body">
+            <div v-if="registerEmailSuccess" class="card mb-2" >
+              <div class="card-body" >
                 <p class="lead text-primary font-weight-bold">
                   {{ registerEmailSuccess }}
                 </p>
