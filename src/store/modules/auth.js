@@ -147,7 +147,7 @@ export default {
 
           if (errorMessage.includes("invalid-email")) {
             commit("setLoginError", {
-              message: "The email is invalid",
+              message: "Please enter valid email",
             });
           } else if (errorMessage.includes("internal-error")) {
             commit("setLoginError", {
