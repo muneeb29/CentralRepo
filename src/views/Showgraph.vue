@@ -6,12 +6,13 @@
 
     <div class="col-12 my-3">
       <div class="row">
-        <div class="col-2">
+        <div class="col-3">
           <p>Forms of Cardiomyopathy</p>
           <select
             v-model="FormName"
             class="form-select"
             aria-label="Default select example"
+            @change="formatNameCardio"
           >
             <option selected hidden>Select One</option>
             <option value="hydertrophicardiomyopathy">
@@ -45,7 +46,7 @@
             <option value="TTN">TTN</option>
           </select>
         </div>
-        <div class="col-2">
+        <div class="col-3">
           <p>Data Source</p>
           <select
             v-model="actualDS"
@@ -60,43 +61,23 @@
           </select>
         </div>
         <div class="col-2">
-          <p>X-axis of experimental data</p>
+          <p>X-axis/Y-axis Experimental data</p>
           <select
             v-model="xAxis"
             class="form-select"
             aria-label="Default select example"
-            @change="handleChangeX"
+            @change="handleChangeLine1"
           >
             <option selected hidden>Select One</option>
-            <option
-              v-for="(axis, index) in xAxisList"
-              :key="index"
-              :value="axis"
-            >
-              {{ axis }}
-            </option>
+            <option value="dv">(ledv/redv)</option>
+            <option value="esv">(lesv/resv)</option>
+            <option value="ef">(lvef/rvef)</option>
+            <option value="mass">(lvmass/rvmass)</option>
+            <option value="rsv">(lsv/rsv)</option>
           </select>
         </div>
         <div class="col-2">
-          <p>Y-axis of experimental data</p>
-          <select
-            v-model="yAxis"
-            class="form-select"
-            aria-label="Default select example"
-            @change="handleChangeY"
-          >
-            <option selected hidden>Select One</option>
-            <option
-              v-for="(axis, index) in yAxisList"
-              :key="index"
-              :value="axis"
-            >
-              {{ axis }}
-            </option>
-          </select>
-        </div>
-        <div class="col-2">
-          <p>Line 2</p>
+          <p>Different Mutated Gene Type</p>
           <select
             v-model="Line2"
             class="form-select"
@@ -105,7 +86,7 @@
           >
             <option selected hidden>Select One</option>
             <option value="MYH7">MYH7</option>
-            <option value="MYBC3mutation">MYBC3</option>
+            <option value="MYBPC3mutation">MYBC3</option>
             <option value="TNNT2mutation">TNNT2</option>
             <option value="ACTCmutation">ACTC</option>
             <option value="TPM1">TPM1</option>
@@ -153,38 +134,58 @@
           :series="series"
         ></apexchart>
       </div>
+
       <div class="details__chart">
         <div class="card" style="width: 40rem">
           <div class="card-header">Details</div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item my-1">
+            <li class="list-group-item my-2">
               <strong>Data source :</strong>
               {{ actualDS != "Select One" ? actualDS : "" }}
             </li>
             <li class="list-group-item my-1">
               <strong>Form of Cardiomyopathy :</strong>
-              {{ FormName != "Select One" ? FormName : "" }}
+              {{ CardioFormName }}
             </li>
-            <li class="list-group-item my-1">
+            <li class="list-group-item my-2">
               <strong>Mutated Gene Type :</strong>
               {{ mutGene != "Select One" ? mutGene : "" }}
             </li>
             <li class="list-group-item my-1">
+              <strong>Different Mutated Gene Type :</strong>
+              {{ DiffMutatedGeneNAme }}
+            </li>
+            <li class="list-group-item my-2">
               <strong>X-axis of experimental data :</strong>
-              {{ xAxis != "Select One" ? xAxis : "" }}
+              {{ xAxisNAme != "Select One" ? xAxisNAme : "" }}
             </li>
             <li class="list-group-item my-1">
               <strong>Y-axis of experimental data :</strong>
-              {{ yAxis != "Select One" ? yAxis : "" }}
+              {{ yAxisNAme != "Select One" ? yAxisNAme : "" }}
             </li>
-            <li class="list-group-item my-1">
+            <li class="list-group-item my-2">
               <strong>Add on :</strong> {{ createdAt }}
-            </li>
-            <li class="list-group-item my-1">
-              <strong>Line 2 :</strong> {{ Line2 != "Select One" ? Line2 : "" }}
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 center py-4 my-2">
+        <apexchart
+          type="pie"
+          width="600"
+          :options="chartOptionsPie1"
+          :series="seriesPie1"
+        ></apexchart>
+      </div>
+      <div class="col-6 center py-4 my-2">
+        <apexchart
+          type="pie"
+          width="600"
+          :options="chartOptionsPie2"
+          :series="seriesPie2"
+        ></apexchart>
       </div>
     </div>
   </div>
@@ -219,9 +220,13 @@ export default {
         chart: {
           height: 350,
           type: "line",
-
+          zoom: {
+            type: "x",
+            enabled: true,
+            autoScaleYaxis: true,
+          },
           toolbar: {
-            show: false,
+            autoSelected: "zoom",
           },
         },
         colors: ["#77B6EA", "#545454"],
@@ -232,7 +237,7 @@ export default {
           curve: "smooth",
         },
         title: {
-          text: "Your Title Here",
+          text: "Experimental Data",
           align: "center",
         },
         grid: {
@@ -264,6 +269,70 @@ export default {
           offsetX: -5,
         },
       },
+      seriesPie1: [44, 55, 13, 43, 22],
+      chartOptionsPie1: {
+        chart: {
+          width: 380,
+          type: "pie",
+        },
+        labels: [
+          "Scare",
+          "Female",
+          "ApicalHCM",
+          "SuddenCardiacDeath",
+          "hypertension",
+          "Diabetes",
+        ],
+        title: {
+          text: "Pie Chart Mutated Gene Type",
+          align: "left",
+        },
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 200,
+              },
+              legend: {
+                position: "bottom",
+              },
+            },
+          },
+        ],
+      },
+      seriesPie2: [44, 55, 13, 43, 22],
+      chartOptionsPie2: {
+        chart: {
+          width: 380,
+          type: "pie",
+        },
+        labels: [
+          "Scare",
+          "Female",
+          "ApicalHCM",
+          "SuddenCardiacDeath",
+          "hypertension",
+          "Diabetes",
+        ],
+        title: {
+          text: "Pie Chart Different Mutated Gene Type",
+          align: "left",
+        },
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 200,
+              },
+              legend: {
+                position: "bottom",
+              },
+            },
+          },
+        ],
+      },
       //this data below what should user choose to display a chart
       Line2: "Select One",
       actualDS: "Select One",
@@ -271,6 +340,10 @@ export default {
       mutGene: "Select One",
       xAxis: "Select One",
       yAxis: "Select One",
+      xAxisNAme: "Select One",
+      yAxisNAme: "Select One",
+      CardioFormName: "",
+      DiffMutatedGeneNAme: "",
       createdAt: "",
     };
   },
@@ -304,50 +377,172 @@ export default {
       this.yAxisList = this.xAxisList;
       this.createdAt = element.createdAt;
     },
-    //The function handleChangeX help us to change the values of xAxis based on which column (experimental data) is choose
-    handleChangeX() {
+    formatNameCardio() {
+      if (this.FormName === "hydertrophicardiomyopathy") {
+        this.CardioFormName = "Hydertrophic Cardiomyopathy";
+      } else if (this.FormName === "dilatedcardiomyopathy") {
+        this.CardioFormName = "Dilated Cardiomyopathy";
+      } else if (this.FormName === "arrhythmogenicright") {
+        this.CardioFormName = "Arrhythmogenic Right Ventricular Cardiomyopathy";
+      }
+    },
+    //The function handleChangeLine1 help us to change the values of xAxis based on which column (experimental data) is choose
+    handleChangeLine1() {
       this.xAxisValues = [];
+      this.yAxisValues = [];
+      let scare = 0;
+      let female = 0;
+      let ApicalHCM = 0;
+      let SuddenCardiacDeath = 0;
+      let hypertension = 0;
+      let Diabetes = 0;
+      let counterLines = 0;
       this.dataFinal.csvContent.forEach((element) => {
         let Id = "" + this.mutGene;
         if (element[Id] === "1") {
-          this.xAxisValues.push(element[this.xAxis]);
+          counterLines++;
+          if (element["scare"] === "1") {
+            scare++;
+          } else if (element["female"] === "1") {
+            female++;
+          } else if (element["ApicalHCM"] === "1") {
+            ApicalHCM++;
+          } else if (element["SuddenCardiacDeath"] === "1") {
+            SuddenCardiacDeath++;
+          } else if (element["hypertension"] === "1") {
+            hypertension++;
+          } else if (element["Diabetes"] === "1") {
+            Diabetes++;
+          }
+          if (this.xAxis == "dv") {
+            this.xAxisValues.push(element["ledv"]);
+            this.yAxisValues.push(element["redv"]);
+            this.changeName("ledv", "redv");
+          } else if (this.xAxis == "esv") {
+            this.xAxisValues.push(element["lesv"]);
+            this.yAxisValues.push(element["resv"]);
+            this.changeName("lesv", "resv");
+          } else if (this.xAxis == "ef") {
+            this.xAxisValues.push(element["lvef"]);
+            this.yAxisValues.push(element["rvef"]);
+            this.changeName("lvef", "rvef");
+          } else if (this.xAxis == "mass") {
+            this.xAxisValues.push(element["lvmass"]);
+            this.yAxisValues.push(element["rvmass"]);
+            this.changeName("lvmass", "rvmass");
+          } else if (this.xAxis == "rsv") {
+            this.xAxisValues.push(element["lsv"]);
+            this.yAxisValues.push(element["rsv"]);
+            this.changeName("lsv", "rsv");
+          }
         } else if (!element[Id]) {
-          this.xAxisValues.push(element[this.xAxis]);
+          if (this.xAxis == "dv") {
+            this.xAxisValues.push(element["ledv"]);
+            this.yAxisValues.push(element["redv"]);
+            this.changeName("ledv", "redv");
+          } else if (this.xAxis == "esv") {
+            this.xAxisValues.push(element["lesv"]);
+            this.yAxisValues.push(element["resv"]);
+            this.changeName("lesv", "resv");
+          } else if (this.xAxis == "ef") {
+            this.xAxisValues.push(element["lvef"]);
+            this.yAxisValues.push(element["rvef"]);
+            this.changeName("lvef", "rvef");
+          } else if (this.xAxis == "mass") {
+            this.xAxisValues.push(element["lvmass"]);
+            this.yAxisValues.push(element["rvmass"]);
+            this.changeName("lvmass", "rvmass");
+          } else if (this.xAxis == "rsv") {
+            this.xAxisValues.push(element["lsv"]);
+            this.yAxisValues.push(element["rsv"]);
+            this.changeName("lsv", "rsv");
+          }
         }
       });
+
+      this.seriesPie1 = [
+        (scare * 100) / counterLines,
+        (female * 100) / counterLines,
+        (ApicalHCM * 100) / counterLines,
+        (SuddenCardiacDeath * 100) / counterLines,
+        (hypertension * 100) / counterLines,
+        (Diabetes * 100) / counterLines,
+      ];
       this.series[0].data = this.yAxisValues;
       this.series[0].name = this.mutGene;
       this.chartOptions.xaxis.categories = this.xAxisValues;
-      this.chartOptions.xaxis.title.text = this.xAxis;
+    },
+    changeName(val1, val2) {
+      this.chartOptions.xaxis.title.text = val1;
+      this.chartOptions.yaxis.title.text = val2;
+      this.xAxisNAme = val1;
+      this.yAxisNAme = val2;
     },
     //The function handleChangeY help us to change the values of yAxis based on which column (experimental data) is choose
-    handleChangeY() {
-      this.yAxisValues = [];
-      this.dataFinal.csvContent.forEach((element) => {
-        let Id = "" + this.mutGene;
-        if (element[Id] === "1") {
-          this.yAxisValues.push(element[this.yAxis]);
-        } else if (!element[Id]) {
-          this.yAxisValues.push(element[this.yAxis]);
-        }
-      });
-      this.series[0].data = this.yAxisValues;
-      this.series[0].name = this.mutGene;
-      this.chartOptions.xaxis.categories = this.xAxisValues;
-      this.chartOptions.yaxis.title.text = this.yAxis;
-    },
+    handleChangeY() {},
     //The function handleChangeLine2 add the line 2
     handleChangeLine2() {
       this.yLine2 = [];
       this.chartOptions.xaxis.categories = this.xAxisValues;
       if (this.Line2 != "") {
+        this.DiffMutatedGeneNAme = this.Line2;
+        if (this.Line2 == "MYBPC3mutation") {
+          this.DiffMutatedGeneNAme = "MYBPC3";
+        } else if (this.Line2 == "TNNT2mutation") {
+          this.DiffMutatedGeneNAme = "TNNT2";
+        } else if (this.Line2 == "ACTCmutation") {
+          this.DiffMutatedGeneNAme = "ACTC";
+        }
+        let scare = 0;
+        let female = 0;
+        let ApicalHCM = 0;
+        let SuddenCardiacDeath = 0;
+        let hypertension = 0;
+        let Diabetes = 0;
+        let counterLines = 0;
         this.dataFinal.csvContent.forEach((element) => {
           let Id = "" + this.Line2;
           if (element[Id] === "1") {
-            this.chartOptions.xaxis.categories.push(element[this.xAxis]);
-            this.yLine2.push(element[this.yAxis]);
+            counterLines++;
+            if (element["scare"] === "1") {
+              scare++;
+            } else if (element["female"] === "1") {
+              female++;
+            } else if (element["ApicalHCM"] === "1") {
+              ApicalHCM++;
+            } else if (element["SuddenCardiacDeath"] === "1") {
+              SuddenCardiacDeath++;
+            } else if (element["hypertension"] === "1") {
+              hypertension++;
+            } else if (element["Diabetes"] === "1") {
+              Diabetes++;
+            }
+            if (this.xAxis == "dv") {
+              this.chartOptions.xaxis.categories.push(element["ledv"]);
+              this.yLine2.push(element["redv"]);
+            } else if (this.xAxis == "esv") {
+              this.chartOptions.xaxis.categories.push(element["lesv"]);
+              this.yLine2.push(element["resv"]);
+            } else if (this.xAxis == "ef") {
+              this.chartOptions.xaxis.categories.push(element["lvef"]);
+              this.yLine2.push(element["rvef"]);
+            } else if (this.xAxis == "mass") {
+              this.chartOptions.xaxis.categories.push(element["lvmass"]);
+              this.yLine2.push(element["rvmass"]);
+            } else if (this.xAxis == "rsv") {
+              this.chartOptions.xaxis.categories.push(element["lsv"]);
+              this.yLine2.push(element["rsv"]);
+            }
           }
         });
+        this.seriesPie2 = [
+          (scare * 100) / counterLines,
+          (female * 100) / counterLines,
+          (ApicalHCM * 100) / counterLines,
+          (SuddenCardiacDeath * 100) / counterLines,
+          (hypertension * 100) / counterLines,
+          (Diabetes * 100) / counterLines,
+        ];
         this.series[1].data = this.yLine2;
         this.series[1].name = this.Line2;
       }
