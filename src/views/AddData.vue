@@ -136,74 +136,6 @@ export default {
         mostcommon: "required",
         mutgene: "required",
       },
-      schematwo: {
-        leftventricularenddiastolicvolume: "required",
-        rightventricularenddiastolicvolume: "required",
-        leftventricularendsystolicvolume: "required",
-        rightventricularendsystolicvolume: "required",
-        leftventricularejectionfraction: "required",
-        rightventricularejectionfraction: "required",
-        leftventricularmass: "required",
-        rightventricularmass: "required",
-        leftsystolicvolume: "required",
-        rightsystolicvolume: "required",
-        fibrosisscarring: "required",
-        gender: "required",
-        ageatmri: "required",
-        apicalhcm: "required",
-        suddencardiacdeath: "required",
-        hypertension: "required",
-        diabetes: "required",
-        myectomy: "required",
-      },
-      data1: {
-        datasource: "",
-        mostcommon: "",
-        mutgene: "",
-      },
-      data2: {
-        leftventricularenddiastolicvolume: "",
-        rightventricularenddiastolicvolume: "",
-        leftventricularendsystolicvolume: "",
-        rightventricularendsystolicvolume: "",
-        leftventricularejectionfraction: "",
-        rightventricularejectionfraction: "",
-        leftventricularmass: "",
-        rightventricularmass: "",
-        leftsystolicvolume: "",
-        rightsystolicvolume: "",
-        fibrosisscarring: "",
-        gender: "",
-        ageatmri: "",
-        apicalhcm: "",
-        suddencardiacdeath: "",
-        hypertension: "",
-        diabetes: "",
-        myectomy: "",
-      },
-      datasource: "",
-      mostcommon: "",
-      mutgene: "",
-
-      leftventricularenddiastolicvolume: "",
-      rightventricularenddiastolicvolume: "",
-      leftventricularendsystolicvolume: "",
-      rightventricularendsystolicvolume: "",
-      leftventricularejectionfraction: "",
-      rightventricularejectionfraction: "",
-      leftventricularmass: "",
-      rightventricularmass: "",
-      leftsystolicvolume: "",
-      rightsystolicvolume: "",
-      fibrosisscarring: "",
-      gender: "",
-      ageatmri: "",
-      apicalhcm: "",
-      suddencardiacdeath: "",
-      hypertension: "",
-      diabetes: "",
-      myectomy: "",
-
       selectedfile: "",
       filteredcsv: "",
     };
@@ -264,7 +196,7 @@ export default {
             today.getMinutes() +
             ":" +
             today.getSeconds();
-          //we get date format 2022-3-4 19:51:15 (example)
+          //we get date format for example 2022-3-4 19:51:15
           let createdAt = date + " " + time;
           /*We use addDoc it's a function in firebase to add a new document
             and we pass all data of document to add a new data source to the users collection
