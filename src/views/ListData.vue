@@ -53,7 +53,7 @@
         <thead>
           <tr>
             <th scope="col">Data Source</th>
-            <th scope="col">Form</th>
+            <th scope="col">Most Common Forms Of Cardiomyopathy</th>
             <th scope="col">Gene Type</th>
             <th scope="col">Created At</th>
             <th scope="col">Actions</th>
