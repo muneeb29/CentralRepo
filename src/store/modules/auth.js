@@ -23,10 +23,10 @@ export default {
     formCorrectlySubmitted: false,
     welcomeMessage: "",
   },
-  getters:{
-    get_user_loggedIn(state){
+  getters: {
+    get_user_loggedIn(state) {
       return state.userLoggedIn;
-    }
+    },
   },
   mutations: {
     // mutations let you modify the initial data
@@ -91,7 +91,7 @@ export default {
       await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           sendEmailVerification(auth.currentUser, {
-            url: "http://localhost:8080/login/",
+            url: "https://cardiomyopathy-f93f7.firebaseapp.com/login",
           }).then(async () => {
             const user = userCredential.user;
             console.log("USER", user);
