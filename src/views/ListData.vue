@@ -60,7 +60,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(data, index) in dataAll" :key="index">
+          <tr v-for="(data, index) in dataAllFormated" :key="index">
             <td>{{ data.dataSource }}</td>
             <td>{{ data.mostCommon }}</td>
             <td>{{ data.mutGene }}</td>
@@ -98,6 +98,20 @@ export default {
       itemDsDelete: "", //will contain the delete status if is empty the modal not displayed else he display the delete modal to confirm
       currentUserEmail: "",
     };
+  },
+  computed:{
+    dataAllFormated(){
+      return this.dataAll.map((item) => {
+        if(item.mostCommon === "dilatedcardiomyopathy"){
+          item.mostCommon = "Dilated Cardiomyopathy"
+        }else if(item.mostCommon === "hydertrophicardiomyopathy"){
+          item.mostCommon = "Hydertrophic Cardiomyopathy"
+        }else if(item.mostCommon === "arrhythmogenicright"){
+          item.mostCommon = "Arrhythmogenic Right Ventricular Cardiomyopathy"
+        }
+        return item
+      })
+    }
   },
   methods: {
     //MODIFICATIONS ⚙

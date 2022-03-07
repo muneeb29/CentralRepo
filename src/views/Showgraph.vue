@@ -99,7 +99,7 @@
       </div>
     </div>
 
-    <div class="center py-4 my-2">
+    <div class="center py-4 my-2 mx-5">
       <div
         v-if="
           xAxisValues.length != 0 &&
@@ -111,7 +111,7 @@
         <apexchart
           type="line"
           height="450"
-          width="1240"
+          width="1050"
           :options="chartOptions"
           :series="series"
         ></apexchart>
@@ -120,7 +120,7 @@
         <apexchart
           type="line"
           height="450"
-          width="1240"
+          width="1050"
           :options="chartOptions"
           :series="series"
         ></apexchart>
@@ -129,14 +129,14 @@
         <apexchart
           type="line"
           height="450"
-          width="1240"
+          width="1050"
           :options="chartOptions"
           :series="series"
         ></apexchart>
       </div>
 
       <div class="details__chart">
-        <div class="card" style="width: 40rem">
+        <div class="card" style="width: 30rem">
           <div class="card-header">Details</div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item my-2">
